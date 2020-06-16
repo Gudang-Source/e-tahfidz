@@ -19,8 +19,9 @@
            </div>
            <div class="form-group">
               <label for="">Pengajar Sekarang</label>
-              <input type="text" name="pengajar_lama" readonly class="form-control" value="{{$class->pengajar->nama}}">
-           </div>
+              <input type="text" name="plama" readonly class="form-control" value="{{$class->pengajar->nama}}">
+               <input type="hidden" name="pengajar_lama" value="{{$class->pengajar->id}}">
+          </div>
            <div class="form-group">
               <label for="">Pengajar Pengganti</label>
               <select class="form-control" name="pengajar_baru" >

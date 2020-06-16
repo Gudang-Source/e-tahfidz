@@ -40,7 +40,7 @@
                   <a href="{{route('suAdmin.kelas.edit', $class)}}" class="btn btn-grad"><i class="fa fa-edit"></i></a>
                </td>
                <td  style="text-align: center">
-                  <a href="{{route('suAdmin.tambah.murid')}}" class="btn btn-grad"><i class="lnr lnr-plus-circle"></i></a>
+                  <a href="{{route('suAdmin.tambah.murid', $class)}}" class="btn btn-grad"><i class="fa fa-user-plus"></i></a>
                </td>
             </tr>
          @endforeach
@@ -49,7 +49,7 @@
 </div>
 <!-- END TABLE HOVER -->
 
-
+<!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
    <div class="modal-dialog" role="document">
      <div class="modal-content">
@@ -84,4 +84,6 @@
      </div>
    </div>
  </div>
-@endsection
+
+
+ @endsection

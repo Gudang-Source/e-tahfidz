@@ -5,6 +5,12 @@
 <script src="/assets_back/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
 <script src="/assets_back/vendor/chartist/js/chartist.min.js"></script>
 <script src="/assets_back/scripts/klorofil-common.js"></script>
+<script src="/assets_back/select2.min.js"></script>
+<script>
+   $(document).ready(function() {
+    $('.js-example-basic-multiple').select2();
+});
+</script>
 <script>
 $(function() {
    var data, options;

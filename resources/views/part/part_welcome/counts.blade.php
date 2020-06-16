@@ -5,21 +5,21 @@
 
        <div class="col-lg-4 col-md-5 col-6 d-md-flex align-items-md-stretch">
          <div class="count-box">
-           <span data-toggle="counter-up">65</span>
-           <p>Jumlah Siswa</p>
+           <span data-toggle="counter-up">{{count($murid)}}</span>
+           <p>Jumlah Murid</p>
          </div>
        </div>
 
        <div class="col-lg-4 col-md-5 col-6 d-md-flex align-items-md-stretch">
          <div class="count-box">
-           <span data-toggle="counter-up">85</span>
-           <p>Jumlah Guru</p>
+           <span data-toggle="counter-up">{{count($pembimbing)}}</span>
+           <p>Jumlah pembimbing</p>
          </div>
        </div>
 
        <div class="col-lg-4 col-md-5 col-6 d-md-flex align-items-md-stretch">
          <div class="count-box">
-           <span data-toggle="counter-up">12</span>
+           <span data-toggle="counter-up">{{count($class)}}</span>
            <p>Jumlah Kelas</p>
          </div>
        </div>

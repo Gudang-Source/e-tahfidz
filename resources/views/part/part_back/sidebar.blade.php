@@ -9,7 +9,6 @@
                <li><a href="{{route('suAdmin.murid.get')}}" class=""><i class="lnr lnr-users"></i> <span>Murid</span></a></li>
                <li><a href="{{route('suAdmin.pengajar.get')}}" class=""><i class="lnr lnr-users"></i> <span>Pengajar</span></a></li>
                <li><a href="{{route('suAdmin.kelas.get')}}" class=""><i class="lnr lnr-enter"></i> <span>Kelas</span></a></li>
-               <li><a href="notifications.html" class=""><i class="lnr lnr-alarm"></i> <span>Notifications</span></a></li>
             @endif
             @endauth
                 

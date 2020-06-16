@@ -13,4 +13,9 @@ class kelas extends Model
     public function pengajar() {
         return $this->belongsTo(pengajar::class,'pengajar_id');
     }
+
+    public function getRouteKeyName()
+    {
+        return "nama_kelas";
+    }
 }

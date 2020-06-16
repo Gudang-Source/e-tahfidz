@@ -35,7 +35,7 @@
                   <form action="{{route('suAdmin.murid.destroy',$murid)}}" method="post">
                      @method('delete')
                      @csrf
-                     <button class="btn btn-grad"><i class="fa fa-trash"></i></button>
+                     <button onclick="return confirm('Yakin Akan Menghapus Murid Ini')" class="btn btn-grad"><i class="fa fa-trash"></i></button>
                   </form>
                </td>
             </tr>

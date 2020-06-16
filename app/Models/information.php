@@ -12,4 +12,8 @@ class information extends Model
     public function user() {
         return $this->belongsTo(User::class,'informan');
     }
+
+    public function visible() {
+        return $this->belongsTo(visible::class,'tujuan');
+    }
 }

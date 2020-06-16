@@ -37,7 +37,7 @@
                 <td>
                   <form action="">
                      @method('delete')
-                     <button class="btn btn-grad"><i class="fa fa-crosshairs"></i></button>
+                     <button class="btn btn-grad"><i class="fa fa-trash"></i></button>
                   </form>
                 </td>
             @endforeach

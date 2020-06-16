@@ -15,10 +15,10 @@
          <div class="row">
             <div class="col-md-4">
                <div class="metric">
-                  <span class="icon"><i class="fa fa-graduation-cap"></i></span>
+                  <span class="icon"><i class="fa fa-users"></i></span>
                   <p>
-                     <span class="number">1,252</span>
-                     <span class="title">Guru</span>
+                     <span class="number">{{count($pengajar)}}</span>
+                     <span class="title">Pembimbing</span>
                   </p>
                </div>
             </div>
@@ -26,8 +26,8 @@
                <div class="metric">
                   <span class="icon"><i class="fa fa-users"></i></span>
                   <p>
-                     <span class="number">203</span>
-                     <span class="title">Sales</span>
+                     <span class="number">{{count($murid)}}</span>
+                     <span class="title">Murid</span>
                   </p>
                </div>
             </div>
@@ -35,7 +35,7 @@
                <div class="metric">
                   <span class="icon"><i class="fa fa-university"></i></span>
                   <p>
-                     <span class="number">274,678</span>
+                     <span class="number">{{count($class)}}</span>
                      <span class="title">Kelas</span>
                   </p>
                </div>
@@ -48,17 +48,22 @@
    <!-- PANEL HEADLINE -->
    <a href="" class="btn btn-grad" style="margin-bottom:2%;" data-toggle="modal" data-target="#exampleModal" ><i class="fa fa-bell"></i> Tambah Pengumuman</a>
     <!-- PANEL HEADLINE -->
-    @foreach ($info as $inf)
-    <div class="panel panel-headline">
-     <div class="panel-heading">
-        <h3 class="panel-title">{{$inf['judul']}}</h3>
-        <p class="panel-subtitle">Informasi Oleh : {{$inf->user->nama}}</p>
-     </div>
-     <div class="panel-body" style="margin-top: -1%;" >
-        <p>{{$inf['info']}}</p>
-     </div>
-  </div>
-  @endforeach    
+    <div class="row">
+      @foreach ($info as $inf)
+       <div class="col-md-6">
+         <div class="panel panel-headline">
+            <div class="panel-heading">
+               <h3 class="panel-title">{{$inf['judul']}}</h3>
+               <p class="panel-subtitle">Informasi Oleh : {{$inf->user->nama}}</p>
+               <small>Ditujukan : {{$inf->visible->visible}}</small>
+            </div>
+            <div class="panel-body" style="margin-top: -1%;" >
+               <p>{{$inf['info']}}</p>
+            </div>
+         </div>
+       </div>
+       @endforeach    
+    </div>
   {{ $info->links() }}
   <!-- END PANEL HEADLINE -->
 
