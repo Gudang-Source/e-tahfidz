@@ -18,4 +18,8 @@ class kelas extends Model
     {
         return "nama_kelas";
     }
+
+    public function students() {
+        return $this->hasMany(murid::class,'kelas_id');
+    }
 }

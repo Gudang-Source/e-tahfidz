@@ -22,6 +22,12 @@ class RedirectIfAuthenticated
            if (Auth::user()->role == "super_admin") {
                return redirect()->route('suAdmin.index');
            }
+           else if(Auth::user()->role == "murid") {
+               return redirect()->route('murid.index');
+           }
+           else if(Auth::user()->role = "pengajar") {
+                return redirect()->route('guru.index');
+           }
         }
 
         return $next($request);

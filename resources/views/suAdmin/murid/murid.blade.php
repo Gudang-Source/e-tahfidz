@@ -27,9 +27,7 @@
                <td>{{$murid->nama}}</td>
                <td>{{$murid->email}}</td>
                <td style="text-align: center">
-                  <form action="">
-                     <button class="btn btn-grad"><i class="fa fa-edit"></i></button>
-                  </form>
+                  <a href="{{route('suAdmin.murid.edit',$murid)}}" class="btn btn-grad"><i class="fa fa-edit"></i></a>
                </td>
                <td style="text-align: center">
                   <form action="{{route('suAdmin.murid.destroy',$murid)}}" method="post">

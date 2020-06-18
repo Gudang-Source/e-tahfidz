@@ -22,6 +22,16 @@ class authController extends Controller
         if (Auth::attempt(['email' => $request->email, "password" => $request->password, "role" => "super_admin"])) {
            return redirect()->route('suAdmin.index');
         }
+        else if (Auth::attempt(['email' => $request->email, "password" => $request->password, "role" => "murid"])) {
+            return redirect()->route('murid.index');
+         }
+         else if (Auth::attempt(['email' => $request->email, "password" => $request->password, "role" => "pengajar"])) {
+            return redirect()->route('guru.index');
+         }
+        else {
+            Alert::warning('Gagal', "Kamu Gagal Login, Email / Password Kamu Mungkin Salah");
+            return back();
+        }
     }
     public function getRegister() {
         return view('auth.register');

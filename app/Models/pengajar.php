@@ -10,7 +10,4 @@ class pengajar extends Model
     protected $fillable = ['nama', 'status'];
     protected $guard = [];
 
-    public function kelas() {
-        return $this->belongsTo(kelas::class, 'pengajar_id');
-    }
 }

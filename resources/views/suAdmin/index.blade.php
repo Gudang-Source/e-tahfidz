@@ -50,21 +50,33 @@
     <!-- PANEL HEADLINE -->
     <div class="row">
       @foreach ($info as $inf)
-       <div class="col-md-6">
          <div class="panel panel-headline">
             <div class="panel-heading">
                <h3 class="panel-title">{{$inf['judul']}}</h3>
                <p class="panel-subtitle">Informasi Oleh : {{$inf->user->nama}}</p>
-               <small>Ditujukan : {{$inf->visible->visible}}</small>
+               <small>Ditujukan : {{$inf->visible->visible}}</small> <br>
+               <small>Published : {{$inf['created_at']->diffForHumans()}}</small> -
+               <small>Updated : {{$inf['updated_at']->diffForHumans()}}</small>
+               
             </div>
             <div class="panel-body" style="margin-top: -1%;" >
                <p>{{$inf['info']}}</p>
             </div>
+            <div class="panel-footer">
+               <tr>
+                  <td><a href="{{route('suAdmin.info.edit',$inf)}}" class="btn btn-grad"><i class="fa fa-edit"></i></a></td>
+                  <td>
+                     <form action="{{route('suAdmin.info.destroy',$inf)}}" style="display: inline" method="post">
+                        @method('delete')
+                        @csrf
+                        <button onclick="return confirm('Yakin Akan Menghapus Pengumuman Ini')" class="btn btn-grad"><i class="fa fa-trash"></i></button>
+                     </form>
+                  </td>
+               </tr>
+            </div>
          </div>
-       </div>
        @endforeach    
     </div>
-  {{ $info->links() }}
   <!-- END PANEL HEADLINE -->
 
    <!-- Modal -->

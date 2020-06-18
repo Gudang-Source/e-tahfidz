@@ -36,7 +36,7 @@
     <!-- End Counts Section --> 
 
     <!-- ======= Team Section ======= -->
-      @include('part.part_welcome.team')
+      {{-- @include('part.part_welcome.team') --}}
     <!-- End Team Section -->
 
     <!-- ======= Frequently Asked Questions Section ======= -->

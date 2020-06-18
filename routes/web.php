@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\information;
 
-Route::get('/', 'welcomeController@index')->name('welcome');
+Route::get('/', 'welcomeController@index')->name('welcome')->middleware('guest');
 Route::group(["namespace" => "auth", 'middleware' => "guest"],function() {
     Route::group(['prefix' => "login"],function() {
         Route::get('', 'authController@getLogin')->name('login');
@@ -30,7 +30,13 @@ Route::group(["namespace" => "auth", 'middleware' => "guest"],function() {
 
 Route::group(['namespace' => "suAdmin", "prefix" => "super-admin", 'middleware' => "auth"],function() {
     Route::get('', 'suAdminController@index')->name('suAdmin.index');
-    Route::post('/pengumuman', 'suAdminController@info')->name('suAdmin.info.store');
+    
+    Route::group(['prefix' => 'informasi'],function() {
+        Route::post('', 'suAdminController@info')->name('suAdmin.info.store');
+        Route::delete('/hapus-informasi/{inf}', 'suAdminController@infoDestroy')->name('suAdmin.info.destroy');
+        Route::get('/edit-informasi/{inf}', 'suAdminController@infoEdit')->name('suAdmin.info.edit');
+        Route::put('/edit-informasi/{inf}', 'suAdminController@infoUpdate');
+    });
    
     Route::group(['prefix' => "pembimbing"],function(){
         Route::get('', 'suAdminController@pengajarGet')->name('suAdmin.pengajar.get');
@@ -39,7 +45,7 @@ Route::group(['namespace' => "suAdmin", "prefix" => "super-admin", 'middleware' 
         Route::get('/edit-data-pembimbing/{pjr}', 'suAdminController@pengajarEdit')->name('suAdmin.pengajar.edit');
         Route::put('/edit-data-pembimbing/{pjr}', 'suAdminController@pengajarUpdate');
         Route::put('/ganti-password-pembimbing/{pjr}','suAdminController@editPassword')->name('suAdmin.edit.password');
-   });
+    });
 
     Route::group(['prefix' => 'kelas'],function(){
         Route::get('', 'suAdminController@kelasGet')->name('suAdmin.kelas.get');
@@ -62,6 +68,9 @@ Route::group(['namespace' => "suAdmin", "prefix" => "super-admin", 'middleware' 
         Route::get('/catatan/{murid}', 'suAdminController@noteGet')->name('suAdmin.siswa.note');
         Route::post('/catatan/{murid}', 'suAdminController@notePost');
         Route::delete('/hapus-murid/{murid}', 'suAdminController@muridDestroy')->name('suAdmin.murid.destroy');
+        Route::get('/edit-data-murid/{murid}', 'suAdminController@muridEdit')->name('suAdmin.murid.edit');
+        Route::put('/edit-data-murid/{murid}', 'suAdminController@muridUpdate');
+        Route::put('/edit-password/{murid}', 'suAdminController@muridEditPw')->name('suAdmin.murid.edit.password');
     });
 
     Route::get('/logout', function() {
@@ -70,4 +79,14 @@ Route::group(['namespace' => "suAdmin", "prefix" => "super-admin", 'middleware' 
         return redirect()->route('login');
     })->name('logout');
 
+});
+
+Route::group(['namespace' => "murid", 'prefix' => "murid", "middleware" => "auth"],function() {
+    Route::get('',  'muridController@index')->name('murid.index'); 
+    Route::get('/notes', 'muridController@note')->name('murid.notes');   
+    Route::get('/kelas', 'muridController@class')->name('murid.class');
+});
+
+Route::group(['namespace' => "guru", "prefix" => "guru", "middleware" => "auth"],function(){
+    Route::get('', 'guruController@index')->name('guru.index');
 });

@@ -27,6 +27,7 @@
               <td>{{$loop->iteration}}</td>
               <td>{{$pjr['nama']}}</td>
               <td>{{$pjr['email']}}</td>
+              <td style="text-align: center"><a href="{{route('suAdmin.pengajar.edit', $pjr)}}" class="btn btn-grad"><i class="fa fa-edit"></i></a></td>
                <td style="text-align: center">
                   <form action="{{route('suAdmin.pengajar.destroy',$pjr)}}" method="post">
                      @csrf
@@ -34,7 +35,6 @@
                      <button onclick="return confirm('Yakin Akan Menghapus Data Pengajar Ini ?? ')" type="submit" class="btn btn-grad"><i class="fa fa-trash"></i></button>
                   </form>
                </td>
-               <td style="text-align: center"><a href="{{route('suAdmin.pengajar.edit', $pjr)}}" class="btn btn-grad"><i class="fa fa-edit"></i></a></td>
             </tr>
        @endforeach
       </table>

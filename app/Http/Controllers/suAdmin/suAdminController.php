@@ -22,6 +22,7 @@ use App\Models\r_pending;
 use App\Models\murid;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ConfirmationEmail;
+use App\Models\note;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class suAdminController extends Controller
@@ -32,7 +33,7 @@ class suAdminController extends Controller
         "pengajar" => $pengajar = pengajar::get()->all(),
         "murid" => $murid = murid::get()->all(),
         "class" => $class = kelas::get()->all(),
-        "info" => $info = information::orderBy('id','DESC')->paginate(5),
+        "info" => $info = information::orderBy('id','DESC')->limit(5)->latest()->get(),
        ];
     }
 
@@ -46,6 +47,7 @@ class suAdminController extends Controller
             "info" => $data['info']
         ]);
     }
+
     public function info(infoRequest $request) {
         information::create([
             "judul" => $request->judul,
@@ -57,15 +59,35 @@ class suAdminController extends Controller
         return redirect()->route('suAdmin.index');
     }
 
+    public function infoDestroy(information $inf) {
+        $inf->delete();
+        Alert::success('Berhasil', 'Pengumuman Berhasil Dihapus');
+        return back();
+    }
+
+    public function infoEdit(information $inf) {
+        return view('suAdmin.info.info_edit',compact('inf'));
+    }
+
+    public function infoUpdate(Request $request, information $inf) {
+        $inf->update([
+            "info" => $request->info
+        ]);
+        Alert::success('Berhasil', 'Informasi Berhasil DiUpdate');
+        return back();
+    }
+
     public function pengajarGet() {
         $pengajar = User::orderBy('id','DESC')->where('role', 'pengajar')->paginate(10);
         return view('suAdmin.pengajar.pengajar',compact('pengajar'));
     }
+    
     public function r_Data($r) {
         session()->flash('nama', $r->nama);
         session()->flash('email', $r->email);
         session()->flash('password',$r->password);
     }
+    
     public function pengajarPost(authRequest $request) {
         $this->r_Data($request);
         $user = new User();
@@ -98,6 +120,7 @@ class suAdminController extends Controller
         Alert::success('Berhasil', 'Data Pengajar '.$pjr['nama'].' Berhasil Diupdate');
         return redirect()->route('suAdmin.pengajar.get');
     }
+
     public function editPassword(editPengajarRequest $request, User $pjr) {
         $pjr->update([
             "password" => bcrypt($request->password)
@@ -111,6 +134,7 @@ class suAdminController extends Controller
         $classes = kelas::orderBy('id', 'DESC')->paginate(10);
         return view('suAdmin.kelas.kelas',compact('teachs','classes'));
     }
+   
     public function kelasPost(kelasRequest $request) {
         kelas::create([
             "nama_kelas" => $request->kelas,
@@ -213,11 +237,21 @@ class suAdminController extends Controller
     }
 
     public function notePost(Request $request, murid $murid) {
-        dd($request->all());
+        $request->validate([
+            "isi" => ['required'    ]
+        ]);
+        $user = User::where('nama', $murid['nama'])->get()->all();
+        note::create([
+            "penerima_id" => $user[0]['id'],
+            "pengirim_id" => Auth::user()->id,
+            "note" => $request->isi
+        ]);
+        Alert::success('Berhasil', 'Catatan Berhasil Dikirim');
+        return back();
     }
 
     public function pendingGet() {
-        $pendings = r_pending::orderBy('id','DESC')->get()->all();
+        $pendings = r_pending::orderBy('id','DESC')->paginate(10);
         return view('suAdmin.pending.pending',compact('pendings'));
     }
 
@@ -249,5 +283,32 @@ class suAdminController extends Controller
         $murid->delete();
         Alert::success('Berhasil', 'Murid Berhasil Dihapus');
         return redirect()->route('suAdmin.murid.get');
+    }
+
+    public function muridEdit(User $murid) {
+        return view('suAdmin.murid.muridEdit',compact('murid'));
+    }
+
+    public function muridUpdate(Request $request, User $murid) {
+        $request->validate([
+            "email" => ['required']
+        ]);
+        $murid->update([
+            "email" => $request->email
+        ]);
+        Alert::success('Berhasil', 'Data Murid '.$request->nama.' Berhasil Diupdate');
+        return back();
+    }
+
+    public function muridEditPw(Request $request, User $murid) {
+        $request->validate([
+            "password" => ['required','confirmed'],
+            "password_confirmation" => ['required']
+        ]);
+        $murid->update([
+            "password" => bcrypt($request->password)
+        ]);
+        Alert::success('Berhasil', 'Password Murid '.$murid['nama'].' Berhasil Diganti');
+        return back();
     }
 }

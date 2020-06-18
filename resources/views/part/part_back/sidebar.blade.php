@@ -10,6 +10,13 @@
                <li><a href="{{route('suAdmin.pengajar.get')}}" class=""><i class="lnr lnr-users"></i> <span>Pengajar</span></a></li>
                <li><a href="{{route('suAdmin.kelas.get')}}" class=""><i class="lnr lnr-enter"></i> <span>Kelas</span></a></li>
             @endif
+
+            @if (Auth::user()->role == "murid")
+            <li><a href="{{route('murid.index')}}" class=""><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+            <li><a href="{{route('murid.notes')}}" class=""><i class="fa fa-sticky-note-o"></i> <span>Catatan Saya</span></a></li>
+            <li><a href="{{route('murid.class')}}" class=""><i class="lnr lnr-enter"></i> <span>Kelas Saya</span></a></li>
+            @endif
+               
             @endauth
                 
                 

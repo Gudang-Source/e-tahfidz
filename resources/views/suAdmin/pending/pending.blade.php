@@ -42,7 +42,7 @@
                 </td>
             @endforeach
          </tbody>
-       
+       {{ $pendings->links() }}
    </div>
 </div>
 <!-- END TABLE HOVER -->

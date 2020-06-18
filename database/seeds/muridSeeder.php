@@ -22,6 +22,7 @@ class muridSeeder extends Seeder
             "nama" => "yoki hendrika",
             "kelas_id" => null
         ]);
+
         User::create([
             "nama" => "maretabenza purnama",
             "email" => "sipur@gmail.com",
@@ -32,6 +33,7 @@ class muridSeeder extends Seeder
             "nama" => "maretabenza purnama",
             "kelas_id" => null
         ]);
+
         User::create([
             "nama" => "muhammad al farizzi",
             "email" => "muhammadalfarizzi563@gmail.com",
@@ -42,5 +44,28 @@ class muridSeeder extends Seeder
             "nama" => "muhammad al farizzi",
             "kelas_id" => null
         ]);
+
+        User::create([
+            "nama" => "dion efendi",
+            "email" => "dion@gmail.com",
+            "password" => bcrypt('dion0000'),
+            "role" => "murid"
+        ]);
+        murid::create([
+            "nama" => "dion efendi",
+            "kelas_id" => null
+        ]);
+
+        User::create([
+            "nama" => "naufal afif",
+            "email" => "naufal@gmail.com",
+            "password" => bcrypt('naufal0000'),
+            "role" => "murid"
+        ]);
+        murid::create([
+            "nama" => "naufal afif",
+            "kelas_id" => null
+        ]);
+        
     }
 }

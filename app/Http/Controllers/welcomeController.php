@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class welcomeController extends Controller
 {
     public function index() {
-        $info = information::where('tujuan',3)->paginate(5);
+        $info = information::where('tujuan',1)->limit(5)->latest()->get();
         $pembimbing = pengajar::get()->all();
         $murid = murid::get()->all();
         $class = kelas::get()->all();
