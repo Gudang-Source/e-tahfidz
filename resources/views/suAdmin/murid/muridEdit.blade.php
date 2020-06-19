@@ -19,7 +19,8 @@
         <div class="form-group">
            <label for="">Email Murid</label>
            <input type="email" name="email" class="form-control" value="{{$murid['email']}}">
-        </div>
+         {!!$errors->first('email','<span class="text-danger">:message</span>')!!}
+         </div>
         <button class="btn btn-grad"><i class="fa a-edit"></i> Update Data</button>
      </form>
    </div>

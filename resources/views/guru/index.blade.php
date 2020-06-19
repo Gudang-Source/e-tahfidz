@@ -44,35 +44,78 @@
       </div>
    </div>
    <!-- END OVERVIEW -->   
-   {{-- <hr>
+    <hr>
    <!-- PANEL HEADLINE -->
   <div class="panel panel-default">
    <div class="panel-heading btn-grad" style="color:white">
       <i class="fa fa-info"></i> Ruang Informasi
+      <div class="right">
+         <button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+         <button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
+      </div>
    </div>
    <hr class="batas">
    <div class="panel-body">
         <!-- PANEL HEADLINE -->
     <div class="row">
-      @foreach ($info as $inf)
-         <div class="panel panel-headline bs-shadow">
-            <div class="panel-heading">
-               <h3 class="panel-title">{{$inf['judul']}}</h3>
-               <p class="panel-subtitle">Informasi Oleh : {{$inf->user->nama}}</p>
-               <small>Ditujukan : {{$inf->visible->visible}}</small> <br>
-               <small>Published : {{$inf['created_at']->diffForHumans()}}</small> -
-               <small>Updated : {{$inf['updated_at']->diffForHumans()}}</small>
-               
+      <div class="col-md-6">
+         <div class="panel panel-default">
+            <div class="panel-heading btn-grad" style="color:white" >
+               <i class="fa fa-info"></i> Informasi Khusus Guru
             </div>
-            <div class="panel-body" style="margin-top: -1%;" >
-               <p>{{$inf['info']}}</p>
-            </div>
-
+            <hr>
+            @foreach ($data['infoA'] as $inf)
+               <!-- PANEL WITH FOOTER -->
+							<div class="panel panel-teach">
+								<div class="panel-heading">
+                           <h3 class="panel-title">{{$inf['judul']}}</h3>
+                           <div class="right">
+                              <button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+                              <button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
+                           </div>
+								</div>
+								<div class="panel-body panel-body-teach">
+									{{$inf['info']}}
+								</div>
+								<div class="panel-footer btn-grad">
+									<h5><i class="fa fa-calendar"></i> Published : {{$inf['created_at']->format('d-F-Y')}} - Updated : {{$inf['updated_at']->format('d-F-Y')}}</h5>
+								</div>
+							</div>
+							<!-- END PANEL WITH FOOTER -->
+            <hr>
+            @endforeach    
          </div>
-         <hr>
-       @endforeach    
-    </div>
+      </div>
+      <div class="col-md-6">
+         <div class="panel panel-default">
+            <div class="panel-heading btn-grad" style="color:white" >
+               <i class="fa fa-info"></i> Informasi Guru Dan Murid
+            </div>
+            <hr>
+            @foreach ($data['infoB'] as $inf)
+               <!-- PANEL WITH FOOTER -->
+							<div class="panel panel-teach">
+								<div class="panel-heading">
+                           <h3 class="panel-title">{{$inf['judul']}}</h3>
+                           <div class="right">
+                              <button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+                              <button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
+                           </div>
+								</div>
+								<div class="panel-body panel-body-teach">
+									{{$inf['info']}}
+								</div>
+								<div class="panel-footer btn-grad">
+									<h5><i class="fa fa-calendar"></i> Published : {{$inf['created_at']->format('d-F-Y')}} - Updated : {{$inf['updated_at']->format('d-F-Y')}}</h5>
+								</div>
+							</div>
+							<!-- END PANEL WITH FOOTER -->
+            <hr>
+            @endforeach    
+         </div>
+      </div>
+   </div>
   <!-- END PANEL HEADLINE -->
    </div>
-  </div> --}}
+  </div>
 @endsection

@@ -19,7 +19,8 @@
          <div class="form-group">
            <label for="">Email</label>
            <input type="text" name="email" value="{{$pjr['email']}}"  class="form-control">
-        </div>
+            {!!$errors->first('email','<span class="text-danger">:message</span>')!!}
+         </div>
         <button type="submit" class="btn btn-grad"><i class="fa fa-edit"></i> Update Data</button>
       </form>
    </div>

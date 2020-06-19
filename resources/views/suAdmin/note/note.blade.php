@@ -22,7 +22,8 @@
             </div>
             <div class="form-group">
                <label for="">Isi Catatan</label>
-               <textarea name="isi" class="form-control" cols="30" rows="10" class="form-control"></textarea>
+               <textarea name="catatan" class="form-control" cols="30" rows="10" class="form-control"></textarea>
+               {!! $errors->first('catatan', '<span class="text-danger">:message</span>') !!}
             </div>
             <button class="btn btn-grad"><i class="fa fa-send-o"></i> Kirim</button>
          </form>

@@ -14,12 +14,12 @@
          </span>
          <form class="login100-form validate-form p-b-33 p-t-5" method="post" action="{{route('register')}}">
             @csrf
-            <div class="wrap-input100 validate-input" data-validate = "Enter username">
+            <div class="wrap-input100 validate-input" data-validate = "Masukan Nama Lengkap Kamu">
                <input class="input100" type="text" name="nama" placeholder="Masukan Nama Lengkap Kamu">
                <span class="focus-input100" data-placeholder="&#xe82a;"></span>
             </div>
 
-            <div class="wrap-input100 validate-input" data-validate = "Enter username">
+            <div class="wrap-input100 validate-input" data-validate = "Masukan Email Kamu">
                <input class="input100" type="email" name="email" placeholder="Email">
                <span class="focus-input100" data-placeholder="&#xe82a;"></span>
             </div>
@@ -40,10 +40,11 @@
             </div>
 
             <div class="container-login100-form-btn m-t-32">
+               <a href="{{route('welcome')}}" class="btn btn-grad mr-4"><i class="fa fa-home"></i></a>
+               <a href="{{route('login')}}" class="btn btn-grad mr-4">Login ?</a>
                <button class="btn btn-grad">
                   Registrasi
                </button>
-               <a href="{{route('login')}}" class="btn btn-grad ml-4">Login ?</a>
             </div>
          </form>
       </div>

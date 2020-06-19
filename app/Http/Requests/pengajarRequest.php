@@ -25,7 +25,7 @@ class pengajarRequest extends FormRequest
     {
         return [
             "nama" => ['required'],
-            "email" => ['required']
+            "email" => ['required', 'unique:users,email']
         ];
     }
 }

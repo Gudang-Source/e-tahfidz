@@ -238,13 +238,13 @@ class suAdminController extends Controller
 
     public function notePost(Request $request, murid $murid) {
         $request->validate([
-            "isi" => ['required'    ]
+            "catatan" => ['required']
         ]);
         $user = User::where('nama', $murid['nama'])->get()->all();
         note::create([
             "penerima_id" => $user[0]['id'],
             "pengirim_id" => Auth::user()->id,
-            "note" => $request->isi
+            "note" => $request->catatan
         ]);
         Alert::success('Berhasil', 'Catatan Berhasil Dikirim');
         return back();
@@ -256,7 +256,7 @@ class suAdminController extends Controller
     }
 
     public function emailNotif(r_pending $pending) {
-        Mail::to($pending['email'])->send(new ConfirmationEmail());
+        $a = Mail::to($pending['email'])->send(new ConfirmationEmail());
         User::create([
             "nama" => $pending['nama'],
             "email" => $pending['email'],
@@ -291,7 +291,7 @@ class suAdminController extends Controller
 
     public function muridUpdate(Request $request, User $murid) {
         $request->validate([
-            "email" => ['required']
+            "email" => ['required', 'unique:users,email']
         ]);
         $murid->update([
             "email" => $request->email

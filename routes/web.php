@@ -89,4 +89,5 @@ Route::group(['namespace' => "murid", 'prefix' => "murid", "middleware" => "auth
 
 Route::group(['namespace' => "guru", "prefix" => "guru", "middleware" => "auth"],function(){
     Route::get('', 'guruController@index')->name('guru.index');
+    Route::get('/kelas', 'guruController@kelasGet')->name('guru.kelas');
 });

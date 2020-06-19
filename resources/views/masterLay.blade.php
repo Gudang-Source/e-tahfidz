@@ -6,10 +6,18 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	@include('part.part_back.loader')
 	@include('part.part_back.css')
+	<script src="/assets_back/vendor/jquery/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+		$(".preloader").fadeOut();
+		})
+		</script>
 </head>
 
 <body>
+	@include('part.part_back.preloader')
 	@include('sweetalert::alert')
 	<!-- WRAPPER -->
 	<div id="wrapper">
