@@ -1,5 +1,5 @@
 <p align="center">
- <img src="/README/readme.png" />
+ <img src="public/README/readme.png" />
 </p>
 
 ## Tentang E-TAHFIDZ
