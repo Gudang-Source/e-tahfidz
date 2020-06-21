@@ -30,7 +30,14 @@ Route::group(["namespace" => "auth", 'middleware' => "guest"],function() {
 
 Route::group(['namespace' => "suAdmin", "prefix" => "super-admin", 'middleware' => "auth"],function() {
     Route::get('', 'suAdminController@index')->name('suAdmin.index');
-    
+
+    Route::group(['prefix' => 'search'],function() {
+        Route::get('/murid', 'searchController@murid')->name('murid.search');
+        Route::get('/pengajar', 'searchController@pengajar')->name('pengajar.search');
+        Route::get('/Kelas', 'searchController@kelas')->name('kelas.search');
+
+    });
+        
     Route::group(['prefix' => 'informasi'],function() {
         Route::post('', 'suAdminController@info')->name('suAdmin.info.store');
         Route::delete('/hapus-informasi/{inf}', 'suAdminController@infoDestroy')->name('suAdmin.info.destroy');

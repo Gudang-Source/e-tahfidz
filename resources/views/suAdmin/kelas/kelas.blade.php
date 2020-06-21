@@ -12,6 +12,11 @@
       <h3 class="panel-title">Data Kelas</h3>
    </div>
    <div class="panel-body">
+      <div class="col-md-4">
+         <form action="{{route('kelas.search')}}" method="get">
+           @include('suAdmin.search.search')
+         </form>
+      </div>
       <a href="" class="btn btn-grad" style="margin-bottom:2%;" data-toggle="modal" data-target="#exampleModal" ><i class="fa fa-plus-circle"></i> Tambah Kelas</a>
       <table class="table table-hover">
          <thead>

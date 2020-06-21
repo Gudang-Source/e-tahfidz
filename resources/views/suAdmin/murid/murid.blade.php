@@ -12,6 +12,14 @@
       <h3 class="panel-title">Data Murid</h3>
    </div>
    <div class="panel-body">
+     <div class="row">
+        <div class="col-md-4">
+         <form action="{{route('murid.search')}}" method="get">
+           @include('suAdmin.search.search')
+         </form>
+        </div>
+     </div>
+     <br>
       <table class="table table-hover">
          <thead>
             <tr>

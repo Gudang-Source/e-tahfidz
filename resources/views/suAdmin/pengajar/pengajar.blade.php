@@ -12,7 +12,12 @@
       <h3 class="panel-title">Data Pengajar</h3>
    </div>
    <div class="panel-body">
-      <a href="" class="btn btn-grad" style="margin-bottom:2%;" data-toggle="modal" data-target="#exampleModal" ><i class="fa fa-user-plus"></i> Tambah Pengajar</a>
+      <div class="col-md-4">
+         <form action="{{route('kelas.search')}}" method="get">
+           @include('suAdmin.search.search')
+         </form>
+      </div>
+      <a href="#" class="btn btn-grad" style="margin-bottom:2%;" data-toggle="modal" data-target="#exampleModal" ><i class="fa fa-user-plus"></i> Tambah Pengajar</a>
       <table class="table table-hover">
          <thead>
             <tr>

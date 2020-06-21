@@ -26,7 +26,13 @@
                <div class="metric">
                   <span class="icon"><i class="fa fa-university"></i></span>
                   <p>
-                     <span class="number">{{$kelas[0]->class->nama_kelas}}</span>
+                     <span class="number">
+                        @if (isset($kelas[0]->class->nama_kelas))
+                        {{$kelas[0]->class->nama_kelas}}
+                        @else
+                           Kamu Belum Masuk Kelas
+                        @endif
+                     </span>
                      <span class="title">Kelas</span>
                   </p>
                </div>
@@ -34,6 +40,7 @@
          </div>
       </div>
    </div>
+                            
    <!-- END OVERVIEW -->   
    <hr>
    <!-- PANEL HEADLINE -->

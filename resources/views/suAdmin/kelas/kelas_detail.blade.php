@@ -66,7 +66,8 @@
                              <option value="{{$student['id']}}">{{$student['nama']}}</option>
                          @endforeach
                        </select>
-                   </div>
+                       {!! $errors->first('murid', '<span class="text-danger">:message</span>') !!}
+                     </div>
                    <button class="btn btn-grad"><i class="fa fa-user-plus"></i> Tambah Murid</button>
                 </form>
              </div>

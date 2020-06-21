@@ -208,6 +208,9 @@ class suAdminController extends Controller
     }
 
     public function tambahMurid2(kelas $class, Request $request) {
+        $request->validate([
+            "murid" => ['required']
+        ]);
        $hasil = [];
        $murid = $request->murid;
        foreach ($murid as $mrd) {
@@ -220,8 +223,8 @@ class suAdminController extends Controller
             ]);
        }
        Alert::success('Berhasil', 'Murid Berhasil Ditambahkan');
-       return redirect()->route('suAdmin.kelas.get');
-        
+    //    return redirect()->route('suAdmin.kelas.get');
+        return back();
     }
 
     public function dropMurid(murid $murid, kelas $class) {
@@ -229,7 +232,7 @@ class suAdminController extends Controller
             "kelas_id" => null
         ]);
         Alert::success('Berhasil', 'Murid Berhasil Dikeluarkan');
-        return redirect()->route('suAdmin.kelas.get');
+        return back();
     }
 
     public function noteGet(murid $murid) {
@@ -257,6 +260,7 @@ class suAdminController extends Controller
 
     public function emailNotif(r_pending $pending) {
         $a = Mail::to($pending['email'])->send(new ConfirmationEmail());
+        session()->flash('nama', $pending['nama']);
         User::create([
             "nama" => $pending['nama'],
             "email" => $pending['email'],

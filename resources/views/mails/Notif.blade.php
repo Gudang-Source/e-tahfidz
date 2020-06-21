@@ -1,13 +1,11 @@
 @component('mail::message')
-# Introduction
-Kamu Diterima
-The body of your message.
+# Tahfidz Online
+{{session('nama')}} Akun Kamu Sudah Aktif Dan Sudah Bisa Digunakan
 
-@component('mail::button', ['url' => ''])
-Button Text
+@component('mail::button', ['url' => 'http://127.0.0.1:8000/login'])
+Klik Disini Untuk Login
 @endcomponent
 
-Thanks,<br>
-hahaha
+Hormat Kami<br>
 {{-- {{ config('app.name') }} --}}
 @endcomponent

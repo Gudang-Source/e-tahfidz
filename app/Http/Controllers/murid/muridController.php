@@ -35,12 +35,26 @@ class muridController extends Controller
     }
 
     public function classData() {
-        return [
-            "me" =>  $me = murid::where('nama', Auth::user()->nama)->get()->all(),
-            "students" => $students = murid::where('kelas_id', $me[0]['kelas_id'])->get()->all(),
-            "class" => $class = kelas::where('id', $me[0]['kelas_id'])->get()->all(),
-            "pengajar" => $pengajar = User::where('id', $class[0]['pengajar_id'])->get()->all(),
-        ];
+        $me = murid::where('nama', Auth::user()->nama)->get()->all();
+        $class = kelas::where('id', $me[0]['kelas_id'])->get()->all();
+        // dd($class);
+        if ($class !== []) {
+            return [
+                "me" => $me  ,
+                "students" => $students = murid::where('kelas_id', $me[0]['kelas_id'])->get()->all(),
+                "class" => $class,
+                "pengajar" => $pengajar = User::where('id', $class[0]['pengajar_id'])->get()->all(),
+            ];
+        }
+        else {
+            return [
+                "me" => $me  ,
+                "students" => $students = murid::where('kelas_id', $me[0]['kelas_id'])->get()->all(),
+                "class" => $class,
+                "pengajar" => "Kamu Belum Masuk Kelas",
+            ];
+        }
+        
     }
 
     public function class() {
