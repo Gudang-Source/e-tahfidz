@@ -35,17 +35,6 @@ class muridSeeder extends Seeder
         ]);
 
         User::create([
-            "nama" => "muhammad al farizzi",
-            "email" => "muhammadalfarizzi563@gmail.com",
-            "password" => bcrypt('alfarizzi0000'),
-            "role" => "murid"
-        ]);
-        murid::create([
-            "nama" => "muhammad al farizzi",
-            "kelas_id" => null
-        ]);
-
-        User::create([
             "nama" => "dion efendi",
             "email" => "dion@gmail.com",
             "password" => bcrypt('dion0000'),

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\feature;
+use App\Models\iklan;
 use App\Models\information;
 use App\Models\kelas;
 use App\Models\murid;
@@ -15,6 +17,9 @@ class welcomeController extends Controller
         $pembimbing = pengajar::get()->all();
         $murid = murid::get()->all();
         $class = kelas::get()->all();
-        return view('welcome',compact('info','pembimbing','murid','class'));
+        $iklan = iklan::where('status', 'checked')->latest()->limit(3)->get()->all();
+        $fiturIklan = feature::where('nama_fitur','iklan')->get()->all();
+        // dd($iklan);
+        return view('welcome',compact('info','pembimbing','murid','class','iklan','fiturIklan'));
     }
 }

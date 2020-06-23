@@ -23,6 +23,7 @@ use App\Models\murid;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ConfirmationEmail;
 use App\Models\note;
+use App\Models\spp;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class suAdminController extends Controller
@@ -34,7 +35,7 @@ class suAdminController extends Controller
         "murid" => $murid = murid::get()->all(),
         "class" => $class = kelas::get()->all(),
         "info" => $info = information::orderBy('id','DESC')->limit(5)->latest()->get(),
-       ];
+    ];
     }
 
     public function index() {
@@ -44,7 +45,7 @@ class suAdminController extends Controller
             "pengajar" => $data['pengajar'],
             "murid" => $data['murid'],
             "class" => $data['class'],
-            "info" => $data['info']
+            "info" => $data['info'],
         ]);
     }
 
@@ -258,8 +259,62 @@ class suAdminController extends Controller
         return view('suAdmin.pending.pending',compact('pendings'));
     }
 
+    public function bulan() {
+        return [
+            [
+                "bulan" => "Januari",
+                "Januari" => "Belum Bayar"
+            ],
+            [
+                "bulan" => "Februari",
+                "Februari" => "Belum Bayar"
+            ],
+            [
+                "bulan" => "Maret",
+                "Maret" => "Belum Bayar"
+            ],
+            [
+                "bulan" => "April",
+                "April" => "Belum Bayar"
+            ],
+            [
+                "bulan" => "Mei",
+                "Mei" => "Belum Bayar"
+            ],
+            [
+                "bulan" => "Juni",
+                "Juni" => "Belum Bayar"
+            ],
+            [
+                "bulan" => "Juli",
+                "Juli" => "Belum Bayar"
+            ],
+            [
+                "bulan" => "Agustus",
+                "Agustus" => "Belum Bayar"
+            ],
+            [
+                "bulan" => "September",
+                "September" => "Belum Bayar"
+            ],
+            [
+                "bulan" => "Oktober",
+                "Oktober" => "Belum Bayar"
+            ],
+            [
+                "bulan" => "November",
+                "November" => "Belum Bayar"
+            ],
+            [
+                "bulan" => "Desember",
+                "Desember" => "Belum Bayar"
+            ],
+            
+        ];
+    }
     public function emailNotif(r_pending $pending) {
         $a = Mail::to($pending['email'])->send(new ConfirmationEmail());
+        $spp = $this->bulan();
         session()->flash('nama', $pending['nama']);
         User::create([
             "nama" => $pending['nama'],
@@ -270,6 +325,10 @@ class suAdminController extends Controller
         murid::create([
             "nama" => $pending['nama'],
             "kelas_id" => null
+        ]);
+        spp::create([
+            "nama" => $pending['nama'],
+            "tahun" => date('Y'),
         ]);
         $pending->delete();
         Alert::success('Berhasil', 'Email Telah Dikirimkan');
@@ -283,7 +342,9 @@ class suAdminController extends Controller
 
     public function muridDestroy(User $murid) {
         $murids = murid::where('nama', $murid['nama'])->get()->all();
+        $spp = spp::where('nama', $murid['nama'])->get()->all();
         $murids[0]->delete();
+        $spp[0]->delete();
         $murid->delete();
         Alert::success('Berhasil', 'Murid Berhasil Dihapus');
         return redirect()->route('suAdmin.murid.get');

@@ -1,6 +1,7 @@
 <nav class="navbar navbar-default navbar-fixed-top">
    <div class="brand">
-      <a href="index.html"><img src="/assets_back/img/logo-dark.png" alt="Klorofil Logo" class="img-responsive logo"></a>
+      {{-- <a href="index.html"><img src="/assets_back/img/logo-dark.png" alt="Klorofil Logo" class="img-responsive logo"></a> --}}
+      {{-- <a href="{{route('suAdmin.index')}}"><img src="/logo2.png" alt="Klorofil Logo" class="img-responsive logo"></a> --}}
    </div>
    <div class="container-fluid">
       <div class="navbar-btn">

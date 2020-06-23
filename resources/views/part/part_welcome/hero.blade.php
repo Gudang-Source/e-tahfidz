@@ -2,7 +2,7 @@
    <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
      <div class="row justify-content-center">
        <div class="col-xl-7 col-lg-9 text-center">
-         <h1 class="mini-text">Tahfidz Online</h1>
+         <h1 class="mini-text">E-Tahfidz</h1>
          <h2 class="mini-text">Belajar Mudah, Muroja'ah Asyik, Allahu akbar!!</h2>
        </div>
      </div>

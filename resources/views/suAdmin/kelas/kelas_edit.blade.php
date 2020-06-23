@@ -1,4 +1,4 @@
-@extends('masterLay');
+@extends('masterLay')
 
 @section('title')
     Edit Data Kelas

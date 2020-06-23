@@ -30,7 +30,16 @@ Route::group(["namespace" => "auth", 'middleware' => "guest"],function() {
 
 Route::group(['namespace' => "suAdmin", "prefix" => "super-admin", 'middleware' => "auth"],function() {
     Route::get('', 'suAdminController@index')->name('suAdmin.index');
-
+    Route::group(['prefix' => "feature"],function() {
+        Route::get('', 'featureController@fiturGet')->name('suAdmin.fitur');
+        Route::post('', 'featureController@fiturPost');
+        Route::get('/iklan', 'featureController@iklanGet')->name('suAdmin.fitur.iklan');
+        Route::post('/iklan', 'featureController@iklanPost');
+        Route::post('/iklan-gambar', 'featureController@iklanGambar')->name('suAdmin.fitur.iklan.gambar');
+        Route::get('/spp', 'featureController@sppGet')->name('suAdmin.fitur.spp');
+        Route::get('/bayar-spp/{murid}', 'featureController@sppBayar')->name('suAdmin.bayar');
+        Route::put('/bayar-spp/{murid}', 'featureController@sppBayar2')->name('suAdmin.bayar.confir');
+    });
     Route::group(['prefix' => 'search'],function() {
         Route::get('/murid', 'searchController@murid')->name('murid.search');
         Route::get('/pengajar', 'searchController@pengajar')->name('pengajar.search');

@@ -5,12 +5,14 @@
             @auth
             @if (Auth::user()->role == "super_admin")
                <li><a href="{{route('suAdmin.index')}}" class=""><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-               <li><a href="{{route('suAdmin.pending.get')}}" class=""><i class="lnr lnr-list"></i> <span>Pendaftar Pending</span></a></li>
+               <li><a href="{{route('suAdmin.pending.get')}}" class=""><i class="lnr lnr-list"></i> <span>Pendaftar Pending</span></a> </li>
                <li><a href="{{route('suAdmin.murid.get')}}" class=""><i class="lnr lnr-users"></i> <span>Murid</span></a></li>
                <li><a href="{{route('suAdmin.pengajar.get')}}" class=""><i class="lnr lnr-users"></i> <span>Pengajar</span></a></li>
                <li><a href="{{route('suAdmin.kelas.get')}}" class=""><i class="lnr lnr-enter"></i> <span>Kelas</span></a></li>
-            @endif
-
+               <li><a href="{{route('suAdmin.fitur')}}" class=""><i class="fa fa-gears"></i> <span>Aktivasi Fitur</span></a></li>
+               <li><a href="{{route('suAdmin.fitur.iklan')}}" class=""><i class="fa fa-money"></i> <span>Iklan</span></a></li>             
+               <li><a href="{{route('suAdmin.fitur.spp')}}" class=""><i class="fa fa-list"></i> <span>SPP / Infak</span></a></li>               
+               @endif
             @if (Auth::user()->role == "murid")
                <li><a href="{{route('murid.index')}}" class=""><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
                <li><a href="{{route('murid.notes')}}" class=""><i class="fa fa-sticky-note-o"></i> <span>Catatan Saya</span></a></li>

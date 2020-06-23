@@ -26,7 +26,11 @@
                <div class="metric">
                   <span class="icon"><i class="fa fa-university"></i></span>
                   <p>
-                     <span class="number">{{$data['class']['nama_kelas']}}</span>
+                     @if ($data['class'] == "Belum Mengajar")
+                     <span class="number">{{$data['class']}}</span>
+                     @else
+                     <span class="number">{{$data['class'][0]['nama_kelas']}}</span>
+                     @endif
                      <span class="title">Kelas</span>
                   </p>
                </div>
@@ -35,7 +39,11 @@
                <div class="metric">
                   <span class="icon"><i class="fa fa-users"></i></span>
                   <p>
+                     @if ($data['murid'] == "Belum Mengajar")
+                     <span class="number">{{$data['murid']}}</span>
+                     @else
                      <span class="number">{{count($data['murid'])}}</span>
+                     @endif
                      <span class="title">Jumlah Murid</span>
                   </p>
                </div>

@@ -7,7 +7,7 @@
 @section('auth')
 <div class="limiter">
    <div class="container-login100" style="background-image: url('/assets_front/img/hero-home.webp');">
-      <div class="wrap-login100 p-t-30 p-b-50" style="width:50%;">
+      <div class="wrap-login100 p-t-30 p-b-50" style="width:%;">
          <span class="login100-form-title p-b-41">
             Account Login
          </span>

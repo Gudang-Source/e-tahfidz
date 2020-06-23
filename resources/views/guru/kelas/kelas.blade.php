@@ -26,13 +26,18 @@
                   </tr>
                </thead>
               <tbody>
+                 @if (isset($students))
                  @foreach ($students as $murid)
                  <tr>
                      <td>{{$loop->iteration}}</td>
                      <td>{{$murid['nama']}}</td>
                      <td><a href="{{route('suAdmin.siswa.note',$murid)}}" class="btn btn-grad"><i class="fa fa-sticky-note"></i></a></td>
-                  </tr>
+                  </tr>                  
                  @endforeach
+                 @else 
+
+                 @endif
+                
               </tbody>
             </table>
          </div>

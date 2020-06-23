@@ -1,4 +1,4 @@
-<script src="/assets_front/vendor/jquery/jquery.min.js"></script>
+  <script src="/assets_front/vendor/jquery/jquery.min.js"></script>
   <script src="/assets_front/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="/assets_front/vendor/jquery.easing/jquery.easing.min.js"></script>
   <script src="/assets_front/vendor/php-email-form/validate.js"></script>
