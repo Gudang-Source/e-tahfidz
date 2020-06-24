@@ -1,7 +1,7 @@
 @extends('masterLay')
 
 @section('title')
-    Fitul Iklan
+    Bayar SPP
 @endsection
 
 @section('content')
@@ -33,7 +33,7 @@
 @include('suAdmin.fitur.modal')   
     <div class="panel panel-default">
        <div class="panel-heading btn-grad" style="color:white">
-          <i class="fa fa-edit"></i> Aktivasi Fitur
+          <i class="fa fa-edit"></i> SPP
        </div>
        <div class="panel-body">
           <table class="table table-hover">

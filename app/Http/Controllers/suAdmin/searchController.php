@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\kelas;
 use App\Models\pengajar;
+use App\Models\spp;
+use App\Models\feature;
 use App\User;
 
 class searchController extends Controller
@@ -22,5 +24,10 @@ class searchController extends Controller
         $teachs = pengajar::where('status', 'non-aktiv')->get()->all();
         $classes = kelas::orderBy('id', 'DESC')->where('nama_kelas','LIKE','%'.$request->input.'%')->paginate(10);
         return view('suAdmin.kelas.kelas', compact('classes', 'teachs'));
+    }
+    public function spp(Request $request) {
+        $spp = feature::where('nama_fitur', 'spp')->get()->all();
+        $murids = spp::orderBy('id', 'DESC')->where('nama','LIKE','%'.$request->input.'%')->paginate(10);
+        return view('suAdmin.fitur.spp', compact('murids','spp'));
     }
 }

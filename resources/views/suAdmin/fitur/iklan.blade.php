@@ -1,13 +1,13 @@
 @extends('masterLay')
 
 @section('title')
-    Fitul Iklan
+    Fitur Iklan
 @endsection
 
 @section('content')
     <div class="panel panel-default">
        <div class="panel-heading btn-grad" style="color:white">
-          <i class="fa fa-edit"></i> Aktivasi Fitur
+          <i class="fa fa-edit"></i> Iklan
        </div>
        <div class="panel-body">
          @if ($iklan[0]['status'] == 'non-checked' || $iklan[0]['status'] == null)

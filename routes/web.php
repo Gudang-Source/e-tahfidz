@@ -43,35 +43,35 @@ Route::group(['namespace' => "suAdmin", "prefix" => "super-admin", 'middleware' 
     Route::group(['prefix' => 'search'],function() {
         Route::get('/murid', 'searchController@murid')->name('murid.search');
         Route::get('/pengajar', 'searchController@pengajar')->name('pengajar.search');
-        Route::get('/Kelas', 'searchController@kelas')->name('kelas.search');
-
+        Route::get('/kelas', 'searchController@kelas')->name('kelas.search');
+        Route::get('/spp', 'searchController@spp')->name('spp.search');
     });
         
     Route::group(['prefix' => 'informasi'],function() {
-        Route::post('', 'suAdminController@info')->name('suAdmin.info.store');
-        Route::delete('/hapus-informasi/{inf}', 'suAdminController@infoDestroy')->name('suAdmin.info.destroy');
-        Route::get('/edit-informasi/{inf}', 'suAdminController@infoEdit')->name('suAdmin.info.edit');
-        Route::put('/edit-informasi/{inf}', 'suAdminController@infoUpdate');
+        Route::post('', 'infoController@info')->name('suAdmin.info.store');
+        Route::delete('/hapus-informasi/{inf}', 'infoController@infoDestroy')->name('suAdmin.info.destroy');
+        Route::get('/edit-informasi/{inf}', 'infoController@infoEdit')->name('suAdmin.info.edit');
+        Route::put('/edit-informasi/{inf}', 'infoController@infoUpdate');
     });
    
     Route::group(['prefix' => "pembimbing"],function(){
-        Route::get('', 'suAdminController@pengajarGet')->name('suAdmin.pengajar.get');
-        Route::post('', 'suAdminController@pengajarPost');
-        Route::delete('/hapus-pembimbing/{pjr}', 'suAdminController@pengajarDestroy')->name('suAdmin.pengajar.destroy');
-        Route::get('/edit-data-pembimbing/{pjr}', 'suAdminController@pengajarEdit')->name('suAdmin.pengajar.edit');
-        Route::put('/edit-data-pembimbing/{pjr}', 'suAdminController@pengajarUpdate');
-        Route::put('/ganti-password-pembimbing/{pjr}','suAdminController@editPassword')->name('suAdmin.edit.password');
+        Route::get('', 'pengajarController@pengajarGet')->name('suAdmin.pengajar.get');
+        Route::post('', 'pengajarController@pengajarPost');
+        Route::delete('/hapus-pembimbing/{pjr}', 'pengajarController@pengajarDestroy')->name('suAdmin.pengajar.destroy');
+        Route::get('/edit-data-pembimbing/{pjr}', 'pengajarController@pengajarEdit')->name('suAdmin.pengajar.edit');
+        Route::put('/edit-data-pembimbing/{pjr}', 'pengajarController@pengajarUpdate');
+        Route::put('/ganti-password-pembimbing/{pjr}','pengajarController@editPassword')->name('suAdmin.edit.password');
     });
 
     Route::group(['prefix' => 'kelas'],function(){
-        Route::get('', 'suAdminController@kelasGet')->name('suAdmin.kelas.get');
-        Route::post('', 'suAdminController@kelasPost');
-        Route::delete('/hapus-kelas/{class}', 'suAdminController@kelasDestroy')->name('suAdmin.kelas.destroy');
-        Route::get('/kelas-edit/{class}', 'suAdminController@kelasEdit')->name('suAdmin.kelas.edit');
-        Route::put('/kelas-edit/{class}', 'suAdminController@kelasUpdate');
-        Route::get('/kelas/tambah-murid/{class}', 'suAdminController@tambahMurid')->name('suAdmin.tambah.murid');
-        Route::post('/kelas/tambah-murid/{class}', 'suAdminController@tambahMurid2');
-        Route::delete('/kelas/hapus-murid/{murid}', 'suAdminController@dropMurid')->name('suAdmin.kelas.drop');
+        Route::get('', 'kelasController@kelasGet')->name('suAdmin.kelas.get');
+        Route::post('', 'kelasController@kelasPost');
+        Route::delete('/hapus-kelas/{class}', 'kelasController@kelasDestroy')->name('suAdmin.kelas.destroy');
+        Route::get('/kelas-edit/{class}', 'kelasController@kelasEdit')->name('suAdmin.kelas.edit');
+        Route::put('/kelas-edit/{class}', 'kelasController@kelasUpdate');
+        Route::get('/kelas/tambah-murid/{class}', 'kelasController@tambahMurid')->name('suAdmin.tambah.murid');
+        Route::post('/kelas/tambah-murid/{class}', 'kelasController@tambahMurid2');
+        Route::delete('/kelas/hapus-murid/{murid}', 'kelasController@dropMurid')->name('suAdmin.kelas.drop');
     });
 
     Route::group(['prefix' => "registrasi-pending"],function(){

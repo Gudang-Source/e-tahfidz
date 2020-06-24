@@ -24,7 +24,7 @@ class kelasRequest extends FormRequest
     public function rules()
     {
         return [
-            "kelas" => ['required']
+            "kelas" => ['required', 'unique:kelas,nama_kelas']
         ];
     }
 }

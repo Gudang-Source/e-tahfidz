@@ -1,13 +1,13 @@
 @extends('masterLay')
 
 @section('title')
-    Fitul Iklan
+   Bayar SPP
 @endsection
 
 @section('content')
     <div class="panel panel-default">
        <div class="panel-heading btn-grad" style="color:white">
-          <i class="fa fa-edit"></i> Aktivasi Fitur
+          <i class="fa fa-edit"></i> SPP
        </div>
        <div class="panel-body">
          @if ($spp[0]['status'] == 'non-checked' || $spp[0]['status'] == null)
@@ -15,7 +15,7 @@
          @else 
          <div class="row">
             <div class="col-md-4">
-             <form action="{{route('murid.search')}}" method="get">
+             <form action="{{route('spp.search')}}" method="get">
                @include('suAdmin.search.search')
              </form>
             </div>

@@ -69,7 +69,7 @@
                @csrf
                <div class="form-group">
                   <label for="">Nama Kelas</label>
-                  <input type="text" name="kelas" class="form-control" placeholder="Masukan Nama Pengajar">
+                  <input type="text" name="kelas" class="form-control" placeholder="Masukan Nama Kelas">
                </div>
                <div class="form-group">
                   <label for="">Angkatan</label>
