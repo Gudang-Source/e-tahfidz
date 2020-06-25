@@ -17,7 +17,7 @@ class welcomeController extends Controller
         $pembimbing = pengajar::get()->all();
         $murid = murid::get()->all();
         $class = kelas::get()->all();
-        $iklan = iklan::where('status', 'checked')->latest()->limit(3)->get()->all();
+        $iklan = iklan::where('status', 'checked')->latest()->get()->all();
         $fiturIklan = feature::where('nama_fitur','iklan')->get()->all();
         // dd($iklan);
         return view('welcome',compact('info','pembimbing','murid','class','iklan','fiturIklan'));

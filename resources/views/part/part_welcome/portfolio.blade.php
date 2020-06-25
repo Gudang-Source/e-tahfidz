@@ -1,148 +1,159 @@
+<!-- ======= Portfolio Section ======= -->
 <section id="portfolio" class="portfolio">
-   <div class="container" data-aos="fade-up">
+  <div class="container" data-aos="fade-up">
 
-     <div class="section-title">
-       <h2>Iklan</h2>
-       <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-     </div>
+    <div class="section-title" style="opacity: 0">
+      <h2>Deyagi</h2>
+    </div>
 
-     <div class="row" data-aos="fade-up" data-aos-delay="150">
-       <div class="col-lg-12 d-flex justify-content-center">
-         <ul id="portfolio-flters">
-           <li data-filter="*" class="filter-active">All</li>
-         </ul>
-       </div>
-     </div>
+    <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="300">
+      <div style="opacity: 0" class="col-md-4 portfolio-item Deyagi-Coffee">
+      </div>
+       <div style="opacity: 0" class="col-md-4 portfolio-item Deyagi-Coffee">
+      </div>
+      <div class="col-md-4 portfolio-item Deyagi-Coffee">
+        <div class="portfolio-wrap">
+          <img src="/assets_front/iklan_landingPage/deyagi_cofee3.jpeg" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <h4>Deyagi Coffee</h4>
+            <div class="portfolio-links">
+              <a href="/assets_front/iklan_landingPage/deyagi_cofee3.jpeg" data-gall="portfolioGallery" class="venobox" title="Deyagi Coffee"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="300">
+      <div style="opacity: 0" class="col-md-4 portfolio-item Deyagi-Coffee">
+      </div>
+      <div style="opacity: 0" class="col-md-4 portfolio-item Deyagi-Coffee">
+      </div>
+      <div class="col-md-4 portfolio-item Deyagi-Coffee">
+        <div class="portfolio-wrap">
+          <img src="/assets_front/iklan_landingPage/deyagi_milk2.jpeg" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <h4>Deyagi Milk</h4>
+            <div class="portfolio-links">
+              <a href="/assets_front/iklan_landingPage/deyagi_milk2.jpeg" data-gall="portfolioGallery" class="venobox" title="Deyagi Coffee"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
      <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="300">
 
-       <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-         <div class="portfolio-wrap">
-           <img src="/assets_front/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-           <div class="portfolio-info">
-             <h4>App 1</h4>
-             <p>App</p>
-             <div class="portfolio-links">
-               <a href="/assets_front/img/portfolio/portfolio-1.jpg" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
-               <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-             </div>
-           </div>
-         </div>
-       </div>
+      <div style="opacity: 0" class="col-md-4 portfolio-item Deyagi-Coffee">
+        {{-- <div class="portfolio-wrap">
+          <img src="/assets_front/iklan_landingPage/deyagi_studio1.jpeg" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <h4>Deyagi Studio</h4>
+            <div class="portfolio-links">
+              <a href="/assets_front/iklan_landingPage/deyagi_studio1.jpeg" data-gall="portfolioGallery" class="venobox" title="Deyagi Studio"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+        </div> --}}
+      </div>
+      <div style="opacity: 0" class="col-md-4 portfolio-item Deyagi-Coffee">
+        {{-- <div class="portfolio-wrap">
+          <img src="/assets_front/iklan_landingPage/deyagi_studio1.jpeg" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <h4>Deyagi Studio</h4>
+            <div class="portfolio-links">
+              <a href="/assets_front/iklan_landingPage/deyagi_studio1.jpeg" data-gall="portfolioGallery" class="venobox" title="Deyagi Studio"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+        </div> --}}
+      </div>
+      <div class="col-md-4 portfolio-item Deyagi-Coffee">
+        <div class="portfolio-wrap">
+          <img src="/assets_front/iklan_landingPage/deyagi_studio1.jpeg" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <h4>Deyagi Studio</h4>
+            <div class="portfolio-links">
+              <a href="/assets_front/iklan_landingPage/deyagi_studio1.jpeg" data-gall="portfolioGallery" class="venobox" title="Deyagi Studio"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    </div>
 
-       <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-         <div class="portfolio-wrap">
-           <img src="/assets_front/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-           <div class="portfolio-info">
-             <h4>Web 3</h4>
-             <p>Web</p>
-             <div class="portfolio-links">
-               <a href="/assets_front/img/portfolio/portfolio-2.jpg" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="bx bx-plus"></i></a>
-               <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-             </div>
-           </div>
-         </div>
-       </div>
+    <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="300">
 
-       <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-         <div class="portfolio-wrap">
-           <img src="/assets_front/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-           <div class="portfolio-info">
-             <h4>App 2</h4>
-             <p>App</p>
-             <div class="portfolio-links">
-               <a href="/assets_front/img/portfolio/portfolio-3.jpg" data-gall="portfolioGallery" class="venobox" title="App 2"><i class="bx bx-plus"></i></a>
-               <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-             </div>
-           </div>
-         </div>
-       </div>
+      <div style="opacity: 0" class="col-md-4 portfolio-item Deyagi-Coffee">
+        {{-- <div class="portfolio-wrap">
+          <img src="/assets_front/iklan_landingPage/deyagi_studio1.jpeg" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <h4>Deyagi Studio</h4>
+            <div class="portfolio-links">
+              <a href="/assets_front/iklan_landingPage/deyagi_studio1.jpeg" data-gall="portfolioGallery" class="venobox" title="Deyagi Studio"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+        </div> --}}
+      </div>
+      <div style="opacity: 0" class="col-md-4 portfolio-item Deyagi-Coffee">
+        {{-- <div class="portfolio-wrap">
+          <img src="/assets_front/iklan_landingPage/deyagi_studio1.jpeg" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <h4>Deyagi Studio</h4>
+            <div class="portfolio-links">
+              <a href="/assets_front/iklan_landingPage/deyagi_studio1.jpeg" data-gall="portfolioGallery" class="venobox" title="Deyagi Studio"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+        </div> --}}
+      </div>
+      <div class="col-md-4 portfolio-item Deyagi-Coffee">
+        <div class="portfolio-wrap">
+          <img src="/assets_front/iklan_landingPage/deyagi_cofee1.jpeg" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <h4>Deyagi Coffee</h4>
+            <div class="portfolio-links">
+              <a href="/assets_front/iklan_landingPage/deyagi_cofee1.jpeg" data-gall="portfolioGallery" class="venobox" title="Deyagi Studio"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-       <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-         <div class="portfolio-wrap">
-           <img src="/assets_front/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
-           <div class="portfolio-info">
-             <h4>Card 2</h4>
-             <p>Card</p>
-             <div class="portfolio-links">
-               <a href="/assets_front/img/portfolio/portfolio-4.jpg" data-gall="portfolioGallery" class="venobox" title="Card 2"><i class="bx bx-plus"></i></a>
-               <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-             </div>
-           </div>
-         </div>
-       </div>
+    <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="300">
 
-       <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-         <div class="portfolio-wrap">
-           <img src="/assets_front/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-           <div class="portfolio-info">
-             <h4>Web 2</h4>
-             <p>Web</p>
-             <div class="portfolio-links">
-               <a href="/assets_front/img/portfolio/portfolio-5.jpg" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="bx bx-plus"></i></a>
-               <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-             </div>
-           </div>
-         </div>
-       </div>
+      <div style="opacity: 0" class="col-md-4 portfolio-item Deyagi-Coffee">
+        {{-- <div class="portfolio-wrap">
+          <img src="/assets_front/iklan_landingPage/deyagi_studio1.jpeg" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <h4>Deyagi Studio</h4>
+            <div class="portfolio-links">
+              <a href="/assets_front/iklan_landingPage/deyagi_studio1.jpeg" data-gall="portfolioGallery" class="venobox" title="Deyagi Studio"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+        </div> --}}
+      </div>
+      <div style="opacity: 0" class="col-md-4 portfolio-item Deyagi-Coffee">
+        {{-- <div class="portfolio-wrap">
+          <img src="/assets_front/iklan_landingPage/deyagi_studio1.jpeg" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <h4>Deyagi Studio</h4>
+            <div class="portfolio-links">
+              <a href="/assets_front/iklan_landingPage/deyagi_studio1.jpeg" data-gall="portfolioGallery" class="venobox" title="Deyagi Studio"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+        </div> --}}
+      </div>
+      <div class="col-md-4 portfolio-item Deyagi-Coffee">
+        <div class="portfolio-wrap">
+          <img src="/assets_front/iklan_landingPage/deyagi_studio3.jpeg" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <h4>Deyagi Coffee</h4>
+            <div class="portfolio-links">
+              <a href="/assets_front/iklan_landingPage/deyagi_studio3.jpeg" data-gall="portfolioGallery" class="venobox" title="Deyagi Studio"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    </div>
 
-       <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-         <div class="portfolio-wrap">
-           <img src="/assets_front/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-           <div class="portfolio-info">
-             <h4>App 3</h4>
-             <p>App</p>
-             <div class="portfolio-links">
-               <a href="/assets_front/img/portfolio/portfolio-6.jpg" data-gall="portfolioGallery" class="venobox" title="App 3"><i class="bx bx-plus"></i></a>
-               <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-             </div>
-           </div>
-         </div>
-       </div>
-
-       <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-         <div class="portfolio-wrap">
-           <img src="/assets_front/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-           <div class="portfolio-info">
-             <h4>Card 1</h4>
-             <p>Card</p>
-             <div class="portfolio-links">
-               <a href="/assets_front/img/portfolio/portfolio-7.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1"><i class="bx bx-plus"></i></a>
-               <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-             </div>
-           </div>
-         </div>
-       </div>
-
-       <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-         <div class="portfolio-wrap">
-           <img src="/assets_front/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-           <div class="portfolio-info">
-             <h4>Card 3</h4>
-             <p>Card</p>
-             <div class="portfolio-links">
-               <a href="/assets_front/img/portfolio/portfolio-8.jpg" data-gall="portfolioGallery" class="venobox" title="Card 3"><i class="bx bx-plus"></i></a>
-               <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-             </div>
-           </div>
-         </div>
-       </div>
-
-       <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-         <div class="portfolio-wrap">
-           <img src="/assets_front/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-           <div class="portfolio-info">
-             <h4>Web 3</h4>
-             <p>Web</p>
-             <div class="portfolio-links">
-               <a href="/assets_front/img/portfolio/portfolio-9.jpg" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="bx bx-plus"></i></a>
-               <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-             </div>
-           </div>
-         </div>
-       </div>
-
-     </div>
-
-   </div>
- </section>
+  </div>
+</section><!-- End Portfolio Section -->

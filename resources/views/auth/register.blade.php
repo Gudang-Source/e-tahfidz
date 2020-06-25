@@ -38,7 +38,11 @@
                   </div>
                </div>
             </div>
-
+            <div class="row" style="margin: auto">
+               <div class="col-md-6">
+                  <span class="text-black">/* Setelah Melakukan Registrasi, Silahkan Hubungi Admin Untuk Mengatifkan Akun <br> <i class="fa fa-whatsapp"></i> WA :  0823-9000-0904 </span>
+               </div>
+            </div>
             <div class="container-login100-form-btn m-t-32">
                <a href="{{route('welcome')}}" class="btn btn-grad mr-4"><i class="fa fa-home"></i></a>
                <a href="{{route('login')}}" class="btn btn-grad mr-4">Login ?</a>
