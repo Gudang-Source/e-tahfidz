@@ -29,6 +29,8 @@ class t_pengajarListener
          $User->create([
             "nama" => session('nama'),
             "email" => session('email'),
+            "no_telp" => session('no_telp'),
+            "alamat" => session('alamat'),
             "password" => bcrypt(session('password')),
             "role" => "pengajar"
         ]);

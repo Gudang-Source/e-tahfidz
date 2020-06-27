@@ -61,6 +61,8 @@ Route::group(['namespace' => "suAdmin", "prefix" => "super-admin", 'middleware' 
         Route::get('/edit-data-pembimbing/{pjr}', 'pengajarController@pengajarEdit')->name('suAdmin.pengajar.edit');
         Route::put('/edit-data-pembimbing/{pjr}', 'pengajarController@pengajarUpdate');
         Route::put('/ganti-password-pembimbing/{pjr}','pengajarController@editPassword')->name('suAdmin.edit.password');
+        Route::get('/catatan/{pjr}', 'pengajarController@pengajarNote')->name('suAdmin.pengajar.note');
+        Route::post('/catatan/{pjr}','pengajarController@pengajarNotePost');
     });
 
     Route::group(['prefix' => 'kelas'],function(){
@@ -87,6 +89,7 @@ Route::group(['namespace' => "suAdmin", "prefix" => "super-admin", 'middleware' 
         Route::get('/edit-data-murid/{murid}', 'suAdminController@muridEdit')->name('suAdmin.murid.edit');
         Route::put('/edit-data-murid/{murid}', 'suAdminController@muridUpdate');
         Route::put('/edit-password/{murid}', 'suAdminController@muridEditPw')->name('suAdmin.murid.edit.password');
+        Route::get('/detail-murid/{murid}', 'suAdminController@muridDetail')->name('suAdmin.murid.detail');
     });
 
     Route::get('/logout', function() {
@@ -101,9 +104,13 @@ Route::group(['namespace' => "murid", 'prefix' => "murid", "middleware" => "auth
     Route::get('',  'muridController@index')->name('murid.index'); 
     Route::get('/notes', 'muridController@note')->name('murid.notes');   
     Route::get('/kelas', 'muridController@class')->name('murid.class');
+    Route::get('/kelas/{class}', 'muridController@classDetail')->name('murid.class.detail');
+    Route::get('/spp', 'muridController@spp')->name('murid.spp');
 });
 
-Route::group(['namespace' => "guru", "prefix" => "guru", "middleware" => "auth"],function(){
+Route::group(['namespace' => "guru", "prefix" => "pembimbing", "middleware" => "auth"],function(){
     Route::get('', 'guruController@index')->name('guru.index');
+    Route::get('/catatan', 'guruController@note')->name('guru.notes');
     Route::get('/kelas', 'guruController@kelasGet')->name('guru.kelas');
+    Route::get('/kelas/{class}', 'guruController@kelasDetail')->name('guru.kelas.detail');
 });

@@ -23,7 +23,8 @@ body {
   background-color: #F3F5F8;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 15px;
-  color: #676a6d; }
+  color: #676a6d; 
+text-transform: capitalize;}
 
 a {
   color: #3287B2; }
@@ -596,7 +597,7 @@ ul.list-justify > li {
     border-color: #00a0f0; }
 
 .btn-grad {
-  background: linear-gradient( 45deg,rgb(135, 238, 79), rgb(74, 240, 226));
+  background: linear-gradient( 45deg,rgb(7, 179, 1), rgb(6, 175, 161));
   color:white;
 }
 

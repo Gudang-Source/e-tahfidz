@@ -5,9 +5,11 @@
 @endsection
 
 @section('content')
-    <div class="panel panel-default">
-       <div class="panel-heading btn-grad" style="color:white">
+    <div class="panel">
+       <div class="panel-heading">
+         <h3 class="panel-title">
           <i class="fa fa-edit"></i> Iklan
+         </h3>
        </div>
        <div class="panel-body">
          @if ($iklan[0]['status'] == 'non-checked' || $iklan[0]['status'] == null)

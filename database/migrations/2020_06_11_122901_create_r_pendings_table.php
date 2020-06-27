@@ -17,6 +17,8 @@ class CreateRPendingsTable extends Migration
             $table->id();
             $table->string('nama');
             $table->string('email');
+            $table->string('no_telp')->nullable();
+            $table->text('alamat')->nullable();
             $table->string('password');
             $table->timestamps();
         });

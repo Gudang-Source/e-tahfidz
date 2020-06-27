@@ -12,37 +12,56 @@
       <h3 class="panel-title">Data Pengajar</h3>
    </div>
    <div class="panel-body">
-      <div class="col-md-4">
-         <form action="{{route('kelas.search')}}" method="get">
-           @include('suAdmin.search.search')
-         </form>
+      <div class="row">
+         <div class="col-md-4">
+            <form action="{{route('pengajar.search')}}" method="get">
+              @include('suAdmin.search.search')
+            </form>
+         </div>
+         <div class="col-md-8">
+            <a href="#" class="btn btn-grad" style="margin-bottom:2%;" data-toggle="modal" data-target="#exampleModal" ><i class="fa fa-user-plus"></i> Tambah Pengajar</a>
+         </div>
       </div>
-      <a href="#" class="btn btn-grad" style="margin-bottom:2%;" data-toggle="modal" data-target="#exampleModal" ><i class="fa fa-user-plus"></i> Tambah Pengajar</a>
-      <table class="table table-hover">
-         <thead>
-            <tr>
-               <th>#</th>
-               <th>Nama Pengajar</th>
-               <th>Email</th>
-               <th colspan="2" style="text-align: center">Aksi</th>
-            </tr>
-         </thead>
-       @foreach ($pengajar as $pjr)
-           <tr>
-              <td>{{$loop->iteration}}</td>
-              <td>{{$pjr['nama']}}</td>
-              <td>{{$pjr['email']}}</td>
-              <td style="text-align: center"><a href="{{route('suAdmin.pengajar.edit', $pjr)}}" class="btn btn-grad"><i class="fa fa-edit"></i></a></td>
-               <td style="text-align: center">
-                  <form action="{{route('suAdmin.pengajar.destroy',$pjr)}}" method="post">
-                     @csrf
-                     @method('delete')
-                     <button onclick="return confirm('Yakin Akan Menghapus Data Pengajar Ini ?? ')" type="submit" class="btn btn-grad"><i class="fa fa-trash"></i></button>
-                  </form>
-               </td>
-            </tr>
-       @endforeach
-      </table>
+      <div class="table-responsive">
+         <table class="table table-hover">
+            <thead>
+               <tr>
+                  <th>#</th>
+                  <th>Nama Pengajar</th>
+                  <th>Email</th>
+                  <th>Alamat</th>
+                  <th>No.Telepon</th>
+                  <th colspan="3" style="text-align: center">Aksi</th>
+               </tr>
+            </thead>
+          @foreach ($pengajar as $pjr)
+              <tr>
+                 <td>{{$loop->iteration}}</td>
+                 <td>{{$pjr['nama']}}</td>
+                 <td>{{$pjr['email']}}</td>
+                 @if ($pjr['alamat'] == null)
+                     <td>Belum Diisi</td>
+                  @else 
+                  <td>{{$pjr['alamat']}}</td>   
+                 @endif
+                 @if ($pjr['no_telp'] == null)
+                    <td> Belum Diisi </td>
+                  @else
+                  <td>{{$pjr['no_telp']}}</td>
+                 @endif
+                 <td style="text-align: center"><a href="{{route('suAdmin.pengajar.note',$pjr)}}" class="btn btn-grad"><i class="fa fa-sticky-note"></i></a></td>
+                 <td style="text-align: center"><a href="{{route('suAdmin.pengajar.edit', $pjr)}}" class="btn btn-grad"><i class="fa fa-edit"></i></a></td>
+                  <td style="text-align: center">
+                     <form action="{{route('suAdmin.pengajar.destroy',$pjr)}}" method="post">
+                        @csrf
+                        @method('delete')
+                        <button onclick="return confirm('Yakin Akan Menghapus Data Pengajar Ini ?? ')" type="submit" class="btn btn-grad"><i class="fa fa-trash"></i></button>
+                     </form>
+                  </td>
+               </tr>
+          @endforeach
+         </table>
+      </div>
       {{$pengajar->links()}}
    </div>
 </div>
@@ -53,7 +72,7 @@
    <div class="modal-dialog" role="document">
      <div class="modal-content">
        <div class="modal-header btn-grad">
-         <h5 class="modal-title" id="exampleModalLabel">Tambah Pengajar</h5>
+         <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-user-plus"></i> Tambah Pengajar</h5>
          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
            <span aria-hidden="true">&times;</span>
          </button>
@@ -68,6 +87,14 @@
                <div class="form-group">
                   <label for="">Email</label>
                   <input type="email" name="email" class="form-control" placeholder="Masukan Email Aktif Pengajar">
+               </div>
+               <div class="form-group">
+                  <label for="">No.Telepon</label>
+                  <input type="text" name="no_telp" placeholder="Masukan No.Telepon Pengajar" class="form-control">
+               </div>
+               <div class="form-group">
+                  <label for="">Alamat</label>
+                  <input type="text" name="alamat" placeholder="Masukan Alamat Pengajar" class="form-control">
                </div>
                <div class="row">
                   <div class="col-md-6">

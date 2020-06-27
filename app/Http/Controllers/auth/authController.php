@@ -41,7 +41,9 @@ class authController extends Controller
         r_pending::create([
             "nama" => $request->nama,
             "email" => $request->email,
-            "password" => $request->password
+            "password" => $request->password,
+            "no_telp" => $request->no_telp,
+            "alamat" => $request->alamat
         ]);
         Alert::success('Berhasil', 'Kamu Berhasil Registrasi, Harap Tunggu Konfirmasi Dari Admin');
         return redirect()->route('login');

@@ -5,7 +5,9 @@ namespace App\Http\Controllers\suAdmin;
 use App\Http\Controllers\Controller;
 use App\Models\feature;
 use App\Models\iklan;
+use App\Models\murid;
 use App\Models\spp;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\DB;
@@ -80,16 +82,36 @@ class featureController extends Controller
     public function sppGet() {
         $spp = feature::where('nama_fitur', 'spp')->get()->all();
         $murids = spp::where('tahun', date('Y'))->paginate(10);
-        // dd($murids);
+        if (count($murids) < 1) {
+            $data1 = murid::get()->all();
+            foreach ($data1 as $dat1) {
+                spp::create([
+                    "nama" => $dat1['nama'],
+                    "tahun" => date('Y'),
+                    "januari" => json_encode(["Belum Bayar", "Balum Bayar"]),
+                    "februari" => json_encode(["Belum Bayar", "Balum Bayar"]),
+                    "maret" => json_encode(["Belum Bayar", "Balum Bayar"]),
+                    "april" => json_encode(["Belum Bayar", "Balum Bayar"]),
+                    "mei" => json_encode(["Belum Bayar", "Balum Bayar"]),
+                    "juni" => json_encode(["Belum Bayar", "Balum Bayar"]),
+                    "juli" => json_encode(["Belum Bayar", "Balum Bayar"]),
+                    "agustus" => json_encode(["Belum Bayar", "Balum Bayar"]),
+                    "september" => json_encode(["Belum Bayar", "Balum Bayar"]),
+                    "oktober" => json_encode(["Belum Bayar", "Balum Bayar"]),
+                    "november" => json_encode(["Belum Bayar", "Balum Bayar"]),
+                    "desember" => json_encode(["Belum Bayar", "Balum Bayar"]),
+                ]);
+            }
+        }
         return view('suAdmin.fitur.spp',compact('spp','murids'));
     }
     public function sppBayar(spp $murid) {
-        // dd($murid);
         return view('suAdmin.fitur.spp_bayar',compact('murid'));
     }
+    
     public function sppBayar2(Request $request, spp $murid) {
         $murid->update([
-            $request->bulan => "Lunas"
+            $request->bulan => json_encode(["Lunas", $request->pesan])
         ]);
         Alert::success('Berhasil', 'SPP bulan'.$request->bulan.'Sudah Lunas');
         return back();

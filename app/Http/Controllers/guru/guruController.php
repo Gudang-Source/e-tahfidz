@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\information;
 use App\Models\kelas;
 use App\Models\murid;
+use App\Models\note;
 use App\Models\pengajar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -37,6 +38,7 @@ class guruController extends Controller
     }
     public function index() {
         $data = $this->indexData();
+        // dd($data);
         return view('guru.index',compact('data'));
     }
 
@@ -46,10 +48,27 @@ class guruController extends Controller
             return view('guru.kelas.kelas', compact('class'));
         }
         else {
-            $data = $this->indexData()['class'][0]['id'];
-            $class = $this->indexData()['class'][0]['nama_kelas'];
-            $students = murid::where('kelas_id', $data)->paginate(10);
-            return view('guru.kelas.kelas', compact('students','class'));
+           $classes = $this->indexData()['class'];
+           return view('guru.kelas.kelas',compact('classes'));
         }
+    }
+
+    public function note() {
+        $notes = note::where('penerima_id', Auth::user()->id)->paginate(5);
+        return view('suAdmin.pengajar.note_get',compact('notes'));
+    }
+
+    public function kelasDetail(kelas $class) {
+        $students = murid::get()->all();
+        $murids = [];
+        foreach ($students as $student) {
+            foreach (explode(',',$student['kelas_id']) as $id) {
+                if ($id == $class['id']) {
+                    $murids [] = $student;
+                }
+            }
+        }
+        // dd($data);
+        return view('murid.kelas.kelas_detail',compact('murids','class'));
     }
 }

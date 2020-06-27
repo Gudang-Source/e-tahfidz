@@ -9,7 +9,7 @@
     <div class="panel panel-headline">
       <div class="panel-heading">
          <h3 class="panel-title">Panel Data</h3>
-         <p class="panel-subtitle">{{date('d-F-Y')}}</p>
+         <p class="panel-subtitle" >{{date('d-F-Y')}}</p>
       </div>
       <div class="panel-body">
          <div class="row">

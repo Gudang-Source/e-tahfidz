@@ -17,8 +17,8 @@ class searchController extends Controller
         return view('suAdmin.murid.murid', compact('murids'));
     }
     public function pengajar(Request $request) {
-        $pengajar = User::orderBy('id','DESC')->where('role', 'pengajar')->where('nama', 'LIKE', '%'.$request->input.'%')->paginate(10);
-        return view('suAdmin.pengajar.pengajar', compact('pengajar'));
+        $murids = User::orderBy('id','DESC')->where('role', 'pengajar')->where('nama', 'LIKE', '%'.$request->input.'%')->paginate(10);
+        return view('suAdmin.pengajar.pengajar', compact('murids'));
     }
     public function kelas(Request $request) {
         $teachs = pengajar::where('status', 'non-aktiv')->get()->all();

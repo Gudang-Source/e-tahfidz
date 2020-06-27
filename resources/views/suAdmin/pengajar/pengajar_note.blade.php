@@ -1,7 +1,7 @@
 @extends('masterLay')
 
 @section('title')
-    Catatan Untuk Murid
+    Catatan Untuk Pembimbing
 @endsection
 
 @section('content')
@@ -10,7 +10,7 @@
           <i class="fa fa-edit"></i> Catatan
        </div>
       <div class="panel-body">
-         <form action="{{route('suAdmin.siswa.note',$murid)}}" method="post">
+         <form action="{{route('suAdmin.pengajar.note',$pjr)}}" method="post">
             @csrf
             <div class="form-group">
                <label for="">Pengirim Catatan</label>
@@ -18,7 +18,7 @@
             </div>
             <div class="form-group">
                <label for="">Penerima Catatan</label>
-               <input type="text" name="penerima" class="form-control" value="{{$murid['nama']}}" readonly>
+               <input type="text" name="penerima" class="form-control" value="{{$pjr['nama']}}" readonly>
             </div>
             <div class="form-group">
                <label for="">Isi Catatan</label>

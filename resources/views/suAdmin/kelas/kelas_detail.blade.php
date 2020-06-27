@@ -40,7 +40,7 @@
                <span class="icon"><i class="fa fa-users"></i></span>
                <p>
                   <span class="number">Jumlah Murid</span>
-                  <span class="title">{{count($jumlah)}}</span>
+                  <span class="title">{{count($murids)}}</span>
                </p>
             </div>
          </div>
@@ -90,10 +90,10 @@
                      <td>{{$loop->iteration}}</td>
                      <td>{{$murid->nama}}</td>
                     <td style="text-align: center">
-                       <a href="{{route('suAdmin.siswa.note',$murid)}}" class="btn btn-grad"><i class="fa fa-sticky-note"></i></a>
+                       <a href="{{route('suAdmin.siswa.note',$murid,$class)}}" class="btn btn-grad"><i class="fa fa-sticky-note"></i></a>
                     </td>
                      <td style="text-align: center">
-                        <form action="{{route('suAdmin.kelas.drop',$murid)}}" method="post">
+                        <form action="{{route('suAdmin.kelas.drop', $murid)}}" method="post">
                            @csrf
                            @method('delete')
                            <button class="btn btn-grad" onclick="return confirm('Yakin Akan Mengeluarkan Murid ?')" ><i class="fa fa-trash"></i></button>
@@ -101,7 +101,7 @@
                      </td>
                   </tr>
                @endforeach
-               {{ $murids->links() }}
+               {{-- {{ $murids->links() }} --}}
          </div>
          </div>
       </div>

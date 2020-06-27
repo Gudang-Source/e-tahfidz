@@ -17,7 +17,7 @@
             <div class="metric">
                <span class="icon"><i class="fa fa-users"></i></span>
                <p>
-                  <span class="number">{{$murid['nama']}}</span>
+                  <span class="number">{{Auth::user()->nama}}</span>
                </p>
             </div>
          </div>
@@ -25,12 +25,6 @@
    </div>
 </div>
 <!-- END OVERVIEW -->
-<div class="row" style="margin-bottom: 2%;">
-   <div class="col-md-4">
-   <a href="#" class="btn btn-grad" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-list"></i> Bayar SPP</a>
-   </div>
-</div>
-@include('suAdmin.fitur.modal')   
     <div class="panel panel-default">
        <div class="panel-heading btn-grad" style="color:white">
           <i class="fa fa-edit"></i> SPP

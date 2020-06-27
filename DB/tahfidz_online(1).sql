@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 24 Jun 2020 pada 08.47
--- Versi server: 10.4.11-MariaDB
--- Versi PHP: 7.4.6
+-- Generation Time: Jun 27, 2020 at 07:47 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `failed_jobs`
+-- Table structure for table `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
@@ -39,7 +39,7 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `features`
+-- Table structure for table `features`
 --
 
 CREATE TABLE `features` (
@@ -51,17 +51,17 @@ CREATE TABLE `features` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `features`
+-- Dumping data for table `features`
 --
 
 INSERT INTO `features` (`id`, `nama_fitur`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'iklan', 'non-checked', '2020-06-24 06:46:29', '2020-06-24 06:46:29'),
-(2, 'spp', 'non-checked', '2020-06-24 06:46:29', '2020-06-24 06:46:29');
+(1, 'iklan', 'non-checked', '2020-06-27 05:46:59', '2020-06-27 05:46:59'),
+(2, 'spp', 'non-checked', '2020-06-27 05:46:59', '2020-06-27 05:46:59');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `iklans`
+-- Table structure for table `iklans`
 --
 
 CREATE TABLE `iklans` (
@@ -75,7 +75,7 @@ CREATE TABLE `iklans` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `information`
+-- Table structure for table `information`
 --
 
 CREATE TABLE `information` (
@@ -92,7 +92,7 @@ CREATE TABLE `information` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kelas`
+-- Table structure for table `kelas`
 --
 
 CREATE TABLE `kelas` (
@@ -107,45 +107,45 @@ CREATE TABLE `kelas` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(132, '2014_10_12_000000_create_users_table', 1),
-(133, '2014_10_12_100000_create_password_resets_table', 1),
-(134, '2019_08_19_000000_create_failed_jobs_table', 1),
-(135, '2020_06_11_122901_create_r_pendings_table', 1),
-(136, '2020_06_11_131427_create_visibles_table', 1),
-(137, '2020_06_11_134547_create_information_table', 1),
-(138, '2020_06_12_104813_create_pengajars_table', 1),
-(139, '2020_06_12_110422_create_kelas_table', 1),
-(140, '2020_06_12_120243_add_angkatan_to_kelas_table', 1),
-(141, '2020_06_14_083006_create_murids_table', 1),
-(142, '2020_06_17_005505_create_notes_table', 1),
-(143, '2020_06_22_185703_create_features_table', 1),
-(144, '2020_06_22_195744_create_iklans_table', 1),
-(145, '2020_06_23_082246_create_spps_table', 1);
+(169, '2014_10_12_000000_create_users_table', 1),
+(170, '2014_10_12_100000_create_password_resets_table', 1),
+(171, '2019_08_19_000000_create_failed_jobs_table', 1),
+(172, '2020_06_11_122901_create_r_pendings_table', 1),
+(173, '2020_06_11_131427_create_visibles_table', 1),
+(174, '2020_06_11_134547_create_information_table', 1),
+(175, '2020_06_12_104813_create_pengajars_table', 1),
+(176, '2020_06_12_110422_create_kelas_table', 1),
+(177, '2020_06_12_120243_add_angkatan_to_kelas_table', 1),
+(178, '2020_06_14_083006_create_murids_table', 1),
+(179, '2020_06_17_005505_create_notes_table', 1),
+(180, '2020_06_22_185703_create_features_table', 1),
+(181, '2020_06_22_195744_create_iklans_table', 1),
+(182, '2020_06_23_082246_create_spps_table', 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `murids`
+-- Table structure for table `murids`
 --
 
 CREATE TABLE `murids` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nama` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `kelas_id` int(11) DEFAULT NULL,
+  `kelas_id` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -153,7 +153,7 @@ CREATE TABLE `murids` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `notes`
+-- Table structure for table `notes`
 --
 
 CREATE TABLE `notes` (
@@ -168,7 +168,7 @@ CREATE TABLE `notes` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -180,13 +180,13 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pengajars`
+-- Table structure for table `pengajars`
 --
 
 CREATE TABLE `pengajars` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nama` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'aktiv',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -194,13 +194,15 @@ CREATE TABLE `pengajars` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `r_pendings`
+-- Table structure for table `r_pendings`
 --
 
 CREATE TABLE `r_pendings` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nama` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `no_telp` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `alamat` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -209,25 +211,25 @@ CREATE TABLE `r_pendings` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `spps`
+-- Table structure for table `spps`
 --
 
 CREATE TABLE `spps` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nama` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tahun` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `januari` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Belum Bayar',
-  `februari` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Belum Bayar',
-  `maret` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Belum Bayar',
-  `april` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Belum Bayar',
-  `mei` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Belum Bayar',
-  `juni` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Belum Bayar',
-  `juli` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Belum Bayar',
-  `agustus` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Belum Bayar',
-  `september` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Belum Bayar',
-  `oktober` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Belum Bayar',
-  `november` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Belum Bayar',
-  `desember` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Belum Bayar',
+  `januari` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '["Belum Bayar","Belum Bayar"]',
+  `februari` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '["Belum Bayar","Belum Bayar"]',
+  `maret` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '["Belum Bayar","Belum Bayar"]',
+  `april` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '["Belum Bayar","Belum Bayar"]',
+  `mei` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '["Belum Bayar","Belum Bayar"]',
+  `juni` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '["Belum Bayar","Belum Bayar"]',
+  `juli` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '["Belum Bayar","Belum Bayar"]',
+  `agustus` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '["Belum Bayar","Belum Bayar"]',
+  `september` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '["Belum Bayar","Belum Bayar"]',
+  `oktober` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '["Belum Bayar","Belum Bayar"]',
+  `november` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '["Belum Bayar","Belum Bayar"]',
+  `desember` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '["Belum Bayar","Belum Bayar"]',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -235,13 +237,15 @@ CREATE TABLE `spps` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nama` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `no_telp` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `alamat` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `role` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -251,16 +255,16 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `nama`, `email`, `email_verified_at`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Tahfidz Online', 'otahfidz@gmail.com', NULL, '$2y$10$Gfoi1y.7C0i8nIUqzXN95eoJuRiGBueQHGxSZKe7yO4KRHTynKF5q', 'super_admin', NULL, '2020-06-24 06:46:29', '2020-06-24 06:46:29');
+INSERT INTO `users` (`id`, `nama`, `email`, `no_telp`, `alamat`, `email_verified_at`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Tahfidz Online', 'otahfidz@gmail.com', NULL, NULL, NULL, '$2y$10$L3Yt5orVsXPuxVehTt.UUuCVZ4aVcS/VQx7rTARdNZ2PCyM5y4zGG', 'super_admin', NULL, '2020-06-27 05:46:59', '2020-06-27 05:46:59');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `visibles`
+-- Table structure for table `visibles`
 --
 
 CREATE TABLE `visibles` (
@@ -271,64 +275,64 @@ CREATE TABLE `visibles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `visibles`
+-- Dumping data for table `visibles`
 --
 
 INSERT INTO `visibles` (`id`, `visible`, `created_at`, `updated_at`) VALUES
-(1, 'umum', '2020-06-24 06:46:29', '2020-06-24 06:46:29'),
-(2, 'pengajar', '2020-06-24 06:46:29', '2020-06-24 06:46:29'),
-(3, 'pengajar & murid', '2020-06-24 06:46:29', '2020-06-24 06:46:29');
+(1, 'umum', '2020-06-27 05:46:59', '2020-06-27 05:46:59'),
+(2, 'pengajar', '2020-06-27 05:46:59', '2020-06-27 05:46:59'),
+(3, 'pengajar & murid', '2020-06-27 05:46:59', '2020-06-27 05:46:59');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `failed_jobs`
+-- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `features`
+-- Indexes for table `features`
 --
 ALTER TABLE `features`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `iklans`
+-- Indexes for table `iklans`
 --
 ALTER TABLE `iklans`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `information`
+-- Indexes for table `information`
 --
 ALTER TABLE `information`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `kelas`
+-- Indexes for table `kelas`
 --
 ALTER TABLE `kelas`
   ADD PRIMARY KEY (`id`),
   ADD KEY `kelas_pengajar_id_index` (`pengajar_id`);
 
 --
--- Indeks untuk tabel `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `murids`
+-- Indexes for table `murids`
 --
 ALTER TABLE `murids`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `murids_kelas_id_index` (`kelas_id`);
+  ADD KEY `murids_kelas_id_index` (`kelas_id`(768));
 
 --
--- Indeks untuk tabel `notes`
+-- Indexes for table `notes`
 --
 ALTER TABLE `notes`
   ADD PRIMARY KEY (`id`),
@@ -336,120 +340,113 @@ ALTER TABLE `notes`
   ADD KEY `notes_penerima_id_index` (`penerima_id`);
 
 --
--- Indeks untuk tabel `password_resets`
---
-ALTER TABLE `password_resets`
-  ADD KEY `password_resets_email_index` (`email`);
-
---
--- Indeks untuk tabel `pengajars`
+-- Indexes for table `pengajars`
 --
 ALTER TABLE `pengajars`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `r_pendings`
+-- Indexes for table `r_pendings`
 --
 ALTER TABLE `r_pendings`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `spps`
+-- Indexes for table `spps`
 --
 ALTER TABLE `spps`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`);
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `visibles`
+-- Indexes for table `visibles`
 --
 ALTER TABLE `visibles`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `failed_jobs`
+-- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `features`
+-- AUTO_INCREMENT for table `features`
 --
 ALTER TABLE `features`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `iklans`
+-- AUTO_INCREMENT for table `iklans`
 --
 ALTER TABLE `iklans`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `information`
+-- AUTO_INCREMENT for table `information`
 --
 ALTER TABLE `information`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `kelas`
+-- AUTO_INCREMENT for table `kelas`
 --
 ALTER TABLE `kelas`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=183;
 
 --
--- AUTO_INCREMENT untuk tabel `murids`
+-- AUTO_INCREMENT for table `murids`
 --
 ALTER TABLE `murids`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `notes`
+-- AUTO_INCREMENT for table `notes`
 --
 ALTER TABLE `notes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `pengajars`
+-- AUTO_INCREMENT for table `pengajars`
 --
 ALTER TABLE `pengajars`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `r_pendings`
+-- AUTO_INCREMENT for table `r_pendings`
 --
 ALTER TABLE `r_pendings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `spps`
+-- AUTO_INCREMENT for table `spps`
 --
 ALTER TABLE `spps`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `visibles`
+-- AUTO_INCREMENT for table `visibles`
 --
 ALTER TABLE `visibles`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;

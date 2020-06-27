@@ -10,16 +10,16 @@ class kelas extends Model
     protected $fillable = ['nama_kelas', 'pengajar_id','angkatan'];
     protected $guarded = [];
 
-    public function pengajar() {
-        return $this->belongsTo(pengajar::class,'pengajar_id');
-    }
-
     public function getRouteKeyName()
     {
         return "nama_kelas";
     }
 
     public function students() {
-        return $this->hasMany(murid::class,'kelas_id');
+        return $this->hasMany(murid::class,'pengajar_id');
+    }
+
+    public function pengajar() {
+        return $this->belongsTo(pengajar::class, 'pengajar_id');
     }
 }

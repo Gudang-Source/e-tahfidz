@@ -16,6 +16,10 @@
                <input type="text" name="nama" readonly value="{{$murid['nama']}}" class="form-control">
             </div>
             <div class="form-group">
+              <label for="">Pesan Kepada User</label>
+              <input type="text" name="pesan" placeholder="Masukan Pesan / Nominal Infak Kepada User"  class="form-control">
+            </div>
+            <div class="form-group">
                <label for="">Bulan</label>
                <select name="bulan" class="form-control">
                  <option value="januari">Januari</option>

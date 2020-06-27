@@ -20,7 +20,7 @@ class guruSeeder extends Seeder
         ]);
         pengajar::create([
             "nama" => "sandhika galih",
-            "status" => "non-aktiv"
+            "status" => "aktiv"
         ]);
 
         User::create([
@@ -31,7 +31,7 @@ class guruSeeder extends Seeder
         ]);
         pengajar::create([
             "nama" => "doddy ferdiansyah",
-            "status" => "non-aktiv"
+            "status" => "aktiv"
         ]);
 
         User::create([
@@ -42,7 +42,7 @@ class guruSeeder extends Seeder
         ]);
         pengajar::create([
             "nama" => "jhon doe",
-            "status" => "non-aktiv"
+            "status" => "aktiv"
         ]);
 
         User::create([
@@ -53,7 +53,7 @@ class guruSeeder extends Seeder
         ]);
         pengajar::create([
             "nama" => "jhon lenon",
-            "status" => "non-aktiv"
+            "status" => "aktiv"
         ]);
 
     }

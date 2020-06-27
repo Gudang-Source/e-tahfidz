@@ -15,7 +15,7 @@ use App\Events\hapusKelas;
 class kelasController extends Controller
 {
     public function kelasGet() {
-        $teachs = pengajar::where('status', 'non-aktiv')->get()->all();
+        $teachs = pengajar::get()->all();
         $classes = kelas::orderBy('id', 'DESC')->paginate(10);
         return view('suAdmin.kelas.kelas',compact('teachs','classes'));
     }
@@ -26,9 +26,6 @@ class kelasController extends Controller
             "pengajar_id" => $request->pengajar,
             "angkatan" => $request->angkatan
         ]);
-        $pengajar = new pengajar();
-        session()->flash('update', $request->pengajar);
-        event(new pengajarEvent($pengajar));
         Alert::success('Berhasil', 'Kelas Berhasil Dibuat');
         return redirect()->route('suAdmin.kelas.get');
     }
@@ -86,10 +83,21 @@ class kelasController extends Controller
     }
 
     public function tambahMurid(kelas $class) {
-        $students = murid::where('kelas_id',null)->get()->all();
-        $murids = murid::where('kelas_id', $class['id'])->paginate(10);
-        $jumlah = murid::where('kelas_id', $class['id'])->get()->all();
-        return view('suAdmin.kelas.kelas_detail', compact('students','class', 'murids', 'jumlah'));
+        $students = murid::get()->all();
+        $murids = [];
+        foreach ($students as $student) {
+            $kelas = explode(',',$student['kelas_id']);
+            foreach ($kelas as $id) {
+                if ($id == $class['id']) {
+                     $murids [] = $student;
+                }
+            }
+        }
+        session()->flash('class', $class['id']);
+        // $students = murid::get()->all();
+        // $murids = murid::where('kelas_id', $class['id'])->paginate(10);
+        // $jumlah = murid::where('kelas_id', $class['id'])->get()->all();
+        return view('suAdmin.kelas.kelas_detail', compact('students','class', 'murids'));
     }
 
     public function tambahMurid2(kelas $class, Request $request) {
@@ -102,10 +110,22 @@ class kelasController extends Controller
            $cari = murid::where('id', $mrd)->get()->all();
            $hasil [] = $cari;
        }
+    //    dd($hasil);
        foreach ($hasil as $hsl) {
+        if ($hsl[0]['kelas_id'] == null) {
             $hsl[0]->update([
                 "kelas_id" => $class['id']
             ]);
+        }
+        else {
+            $dec = explode(',',$hsl[0]['kelas_id']);
+            $push = array_push($dec,$class['id']);
+            // dd($dec);
+            $hsl[0]->update([
+                "kelas_id" => implode(',', $dec)
+            ]);
+        }
+        
        }
        Alert::success('Berhasil', 'Murid Berhasil Ditambahkan');
     //    return redirect()->route('suAdmin.kelas.get');
@@ -113,10 +133,17 @@ class kelasController extends Controller
     }
 
     public function dropMurid(murid $murid, kelas $class) {
-        $murid->update([
-            "kelas_id" => null
-        ]);
-        Alert::success('Berhasil', 'Murid Berhasil Dikeluarkan');
-        return back();
+        $dec = explode(',', $murid['kelas_id']);
+      for ($i=0; $i < count($dec); $i++) { 
+          if($dec[$i] == session('class')) {
+            unset($dec[$i]);
+          }
+      }
+    //   dd($dec);
+      $murid->update([
+          "kelas_id" => implode(',',$dec),
+      ]);
+      Alert::success('Berhasil', 'Murid Berhasil DiKeluarkan');
+      return back(); 
     }
 }

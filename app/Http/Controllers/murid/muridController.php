@@ -7,6 +7,7 @@ use App\Models\information;
 use App\Models\kelas;
 use App\Models\murid;
 use App\Models\note;
+use App\Models\spp;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -25,7 +26,7 @@ class muridController extends Controller
         $data = $this->indexData();
        return view('murid.index', [
            "info" => $data['info'],
-           "kelas" => $data['kelas']
+           "kelas" => explode(',',$data['kelas'][0]['kelas_id'])
        ]);
     }
 
@@ -36,22 +37,37 @@ class muridController extends Controller
 
     public function classData() {
         $me = murid::where('nama', Auth::user()->nama)->get()->all();
-        $class = kelas::where('id', $me[0]['kelas_id'])->get()->all();
+        $tes = murid::where('nama', Auth::user()->nama)->get()->all()[0]['kelas_id'];
+        $tes = explode(',',$tes);
+        $students = murid::get()->all();
+        $b = [];
+        $class = [];
+       for ($i=0; $i < count($tes); $i++) { 
+            $a = kelas::where('id', $tes[$i])->get()->all();
+            $class [] = $a;
+       }
+      foreach ($students as $stud) {
+            foreach (explode(',',$stud['kelas_id']) as $stu) {
+                foreach ($tes as $ts) {
+                    if ($stu == $ts) {
+                        $b [] = $stud;
+                    }
+                }
+            }
+      }
         // dd($class);
         if ($class !== []) {
             return [
-                "me" => $me  ,
+                "me" => array_unique($b),
+                "tes" => $tes,
                 "students" => $students = murid::where('kelas_id', $me[0]['kelas_id'])->get()->all(),
                 "class" => $class,
-                "pengajar" => $pengajar = User::where('id', $class[0]['pengajar_id'])->get()->all(),
             ];
         }
         else {
             return [
                 "me" => $me  ,
-                "students" => $students = murid::where('kelas_id', $me[0]['kelas_id'])->get()->all(),
-                "class" => $class,
-                "pengajar" => "Kamu Belum Masuk Kelas",
+                "class" => "Kamu Belum Masuk Kelas",
             ];
         }
         
@@ -59,10 +75,27 @@ class muridController extends Controller
 
     public function class() {
         $data = $this->classData();
+        // dd($data);
         return view('murid.kelas.kelas',[
-            "students" => $data['students'],
-            "class" => $data['class'],
-            "pengajar" => $data['pengajar']
+            "classes" => $data['class'],
         ]); 
+    }
+
+    public function spp() {
+        $murid = spp::where('nama', Auth::user()->nama)->get()->all()[0];
+        return view('murid.spp.spp',compact('murid'));
+    }
+
+    public function classDetail(kelas $class) {
+        $students = murid::get()->all();
+        $data = [];
+        foreach ($students as $student) {
+            foreach (explode(',',$student['kelas_id']) as $id) {
+                if ($id == $class['id']) {
+                    $data [] = $student;
+                }
+            }
+        }
+        return view('murid.kelas.kelas_detail',compact('data','class'));
     }
 }

@@ -49,11 +49,6 @@ class suAdminController extends Controller
         ]);
     }
    
-
-    
-
-    
-
     public function noteGet(murid $murid) {
         return view('suAdmin.note.note',compact('murid'));
     }
@@ -138,6 +133,8 @@ class suAdminController extends Controller
             "nama" => $pending['nama'],
             "email" => $pending['email'],
             "password" => bcrypt($pending['password']),
+            "no_telp" => $pending['no_telp'],
+            "alamat" => $pending['alamat'],
             "role" => 'murid'
         ]);
         murid::create([
@@ -173,10 +170,10 @@ class suAdminController extends Controller
     }
 
     public function muridUpdate(Request $request, User $murid) {
-        $request->validate([
-            "email" => ['required', 'unique:users,email']
-        ]);
         $murid->update([
+            "nama" => $request->nama,
+            "no_telp" => $request->no_telp,
+            "alamat" => $request->alamat,
             "email" => $request->email
         ]);
         Alert::success('Berhasil', 'Data Murid '.$request->nama.' Berhasil Diupdate');
@@ -193,5 +190,16 @@ class suAdminController extends Controller
         ]);
         Alert::success('Berhasil', 'Password Murid '.$murid['nama'].' Berhasil Diganti');
         return back();
+    }
+
+    public function muridDetail(User $murid) {
+        $dataMurid  = murid::where('nama',$murid['nama'])->get()->all();
+    //    dd($dataMurid);
+        $kelas_murid = [];
+        foreach (explode(',',$dataMurid[0]['kelas_id']) as $kid) {
+            $kelas = kelas::where('id',$kid)->get()->all();
+            $kelas_murid [] = $kelas;            
+        }
+        return view('suAdmin.murid.muridDetail',compact('dataMurid','kelas_murid'));
     }
 }

@@ -15,7 +15,7 @@
          <div class="row">
             <div class="col-md-6">
                <div class="metric">
-                  <span class="icon"><i class="fa fa-users"></i></span>
+                  <span class="icon"><i class="fa fa-user"></i></span>
                   <p>
                      <span class="number">{{Auth::user()->nama}}</span>
                      <span class="title">Nama</span>
@@ -27,13 +27,13 @@
                   <span class="icon"><i class="fa fa-university"></i></span>
                   <p>
                      <span class="number">
-                        @if (isset($kelas[0]->class->nama_kelas))
-                        {{$kelas[0]->class->nama_kelas}}
+                       @if ($kelas[0] == null)
+                           0
                         @else
-                           Kamu Belum Masuk Kelas
-                        @endif
+                        {{count($kelas)}}
+                       @endif
                      </span>
-                     <span class="title">Kelas</span>
+                     <span class="title">Kelas Yang Diikuti</span>
                   </p>
                </div>
             </div>

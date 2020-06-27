@@ -23,7 +23,20 @@
                <input class="input100" type="email" name="email" placeholder="Email">
                <span class="focus-input100" data-placeholder="&#xe82a;"></span>
             </div>
-
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="wrap-input100 validate-input" data-validate = "Masukan No.Telepon Kamu">
+                     <input class="input100" type="text" name="no_telp" placeholder="No.Telepon">
+                     <span class="focus-input100" data-placeholder="&#xe82a;"></span>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <div class="wrap-input100 validate-input" data-validate = "Masukan Alamat Kamu">
+                     <input class="input100" type="alamat" name="alamat" placeholder="Alamat">
+                     <span class="focus-input100" data-placeholder="&#xe82a;"></span>
+                  </div>
+               </div>
+            </div>
             <div class="row">
                <div class="col-md-6">
                   <div class="wrap-input100 validate-input" data-validate="Masukan Password Kamu">

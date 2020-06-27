@@ -5,9 +5,11 @@
 @endsection
 
 @section('content')
-    <div class="panel panel-default">
-       <div class="panel-heading btn-grad" style="color:white">
-          <i class="fa fa-edit"></i> SPP
+    <div class="panel">
+       <div class="panel-heading">
+          <h3 class="panel-title">
+            <i class="fa fa-edit"></i> SPP
+          </h3>
        </div>
        <div class="panel-body">
          @if ($spp[0]['status'] == 'non-checked' || $spp[0]['status'] == null)

@@ -17,13 +17,14 @@
                <li><a href="{{route('murid.index')}}" class=""><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
                <li><a href="{{route('murid.notes')}}" class=""><i class="fa fa-sticky-note-o"></i> <span>Catatan Saya</span></a></li>
                <li><a href="{{route('murid.class')}}" class=""><i class="lnr lnr-enter"></i> <span>Kelas Saya</span></a></li>
+               <li><a href="{{route('murid.spp')}}" class=""><i class="fa fa-list"></i> <span>Laporan SPP Saya</span></a></li>
             @endif
 
             @if (Auth::user()->role == "pengajar")
                <li><a href="{{route('guru.index')}}" class=""><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>    
                <li><a href="{{route('guru.kelas')}}" class=""><i class="lnr lnr-enter"></i> <span>Kelas Ku</span></a></li>        
+               <li><a href="{{route('guru.notes')}}" class=""><i class="fa fa-sticky-note-o"></i> <span>Catatan Saya</span></a></li>               
             @endif
-               
             @endauth
                 
                 

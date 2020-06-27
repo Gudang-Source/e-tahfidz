@@ -20,13 +20,16 @@
         </div>
      </div>
      <br>
+     <div class="table-responsive">
       <table class="table table-hover">
          <thead>
             <tr>
                <th>#</th>
                <th>Nama Murid</th>
                <th>Email</th>
-               <th colspan="2" style="text-align: center">Aksi</th>
+               <th>Alamat</th>
+               <th>No.Telepon</th>
+               <th colspan="3" style="text-align: center">Aksi</th>
             </tr>
          </thead>
          @foreach ($murids as $murid)
@@ -34,6 +37,16 @@
                <td>{{$loop->iteration}}</td>
                <td>{{$murid->nama}}</td>
                <td>{{$murid->email}}</td>
+               @if ($murid['alamat'] == null)
+                     <td>Belum Diisi</td>
+                  @else 
+                  <td>{{$murid['alamat']}}</td>   
+                 @endif
+                 @if ($murid['no_telp'] == null)
+                    <td> Belum Diisi </td>
+                  @else
+                  <td>{{$murid['no_telp']}}</td>
+                 @endif
                <td style="text-align: center">
                   <a href="{{route('suAdmin.murid.edit',$murid)}}" class="btn btn-grad"><i class="fa fa-edit"></i></a>
                </td>
@@ -44,9 +57,14 @@
                      <button onclick="return confirm('Yakin Akan Menghapus Murid Ini')" class="btn btn-grad"><i class="fa fa-trash"></i></button>
                   </form>
                </td>
+               <td style="text-align: center">
+                  <a href="{{route('suAdmin.murid.detail',$murid)}}" class="btn btn-grad"><i class="fa fa-search-plus"></i></a>
+               </td>
             </tr>
          @endforeach
-         {{ $murids->links() }}
+      </table>
+     </div>
+   {{ $murids->links() }}
    </div>
 </div>
 <!-- END TABLE HOVER -->

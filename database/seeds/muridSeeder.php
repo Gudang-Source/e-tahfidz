@@ -20,7 +20,7 @@ class muridSeeder extends Seeder
         ]);
         murid::create([
             "nama" => "yoki hendrika",
-            "kelas_id" => null
+            "kelas_id" => null,
         ]);
 
         User::create([
@@ -31,7 +31,7 @@ class muridSeeder extends Seeder
         ]);
         murid::create([
             "nama" => "maretabenza purnama",
-            "kelas_id" => null
+            "kelas_id" => null,
         ]);
 
         User::create([
@@ -42,7 +42,7 @@ class muridSeeder extends Seeder
         ]);
         murid::create([
             "nama" => "dion efendi",
-            "kelas_id" => null
+            "kelas_id" => null,
         ]);
 
         User::create([
@@ -53,7 +53,7 @@ class muridSeeder extends Seeder
         ]);
         murid::create([
             "nama" => "naufal afif",
-            "kelas_id" => null
+            "kelas_id" => null,
         ]);
         
     }

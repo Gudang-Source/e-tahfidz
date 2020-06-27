@@ -16,7 +16,7 @@ class CreatePengajarsTable extends Migration
         Schema::create('pengajars', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('status');
+            $table->string('status')->default('aktiv');
             $table->timestamps();
         });
     }

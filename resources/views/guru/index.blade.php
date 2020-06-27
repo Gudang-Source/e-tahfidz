@@ -13,7 +13,7 @@
       </div>
       <div class="panel-body">
          <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
                <div class="metric">
                   <span class="icon"><i class="fa fa-users"></i></span>
                   <p>
@@ -22,29 +22,16 @@
                   </p>
                </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                <div class="metric">
                   <span class="icon"><i class="fa fa-university"></i></span>
                   <p>
                      @if ($data['class'] == "Belum Mengajar")
                      <span class="number">{{$data['class']}}</span>
                      @else
-                     <span class="number">{{$data['class'][0]['nama_kelas']}}</span>
+                     <span class="number">{{count($data['class'])}}</span>
                      @endif
-                     <span class="title">Kelas</span>
-                  </p>
-               </div>
-            </div>
-            <div class="col-md-4">
-               <div class="metric">
-                  <span class="icon"><i class="fa fa-users"></i></span>
-                  <p>
-                     @if ($data['murid'] == "Belum Mengajar")
-                     <span class="number">{{$data['murid']}}</span>
-                     @else
-                     <span class="number">{{count($data['murid'])}}</span>
-                     @endif
-                     <span class="title">Jumlah Murid</span>
+                     <span class="title">Jumlah Kelas Yang Diajar</span>
                   </p>
                </div>
             </div>

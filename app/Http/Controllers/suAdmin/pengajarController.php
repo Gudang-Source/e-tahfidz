@@ -11,6 +11,8 @@ use App\Events\t_pengajarEvent;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\pengajarRequest;
 use App\Http\Requests\editPengajarRequest;
+use Illuminate\Support\Facades\Auth;
+use App\Models\note;
 
 class pengajarController extends Controller
 {
@@ -18,6 +20,8 @@ class pengajarController extends Controller
         session()->flash('nama', $r->nama);
         session()->flash('email', $r->email);
         session()->flash('password',$r->password);
+        session()->flash('no_telp',$r->no_telp);
+        session()->flash('alamat', $r->alamat);
     }
     
     public function pengajarGet() {
@@ -38,6 +42,7 @@ class pengajarController extends Controller
     }
 
     public function pengajarDestroy(User $pjr) {
+        dd($pjr);
         $pengajar = pengajar::where('nama', $pjr['nama'])->get()->all();
         $pengajar[0]->delete();
         $pjr->delete();
@@ -49,10 +54,12 @@ class pengajarController extends Controller
         return view('suAdmin.pengajar.pengajar_edit',compact('pjr'));
     }
 
-    public function pengajarUpdate(User $pjr, pengajarRequest $request) {
+    public function pengajarUpdate(User $pjr, Request $request) {
         $pjr->update([
             "nama" => $request->nama,
             "email" => $request->email,
+            "no_telp" => $request->no_telp,
+            "alamat" => $request->alamat
         ]);
         Alert::success('Berhasil', 'Data Pengajar '.$pjr['nama'].' Berhasil Diupdate');
         return redirect()->route('suAdmin.pengajar.get');
@@ -63,6 +70,23 @@ class pengajarController extends Controller
             "password" => bcrypt($request->password)
         ]);
         Alert::success('Berhasil', 'Password Berhasil Diganti');
+        return back();
+    }
+
+    public function pengajarNote(User $pjr) {
+        return view('suAdmin.pengajar.pengajar_note',compact('pjr'));
+    } 
+    public function pengajarNotePost(Request $request, User $pjr) {
+        $request->validate([
+            "catatan" => ['required']
+        ]);
+        $user = User::where('nama', $pjr['nama'])->get()->all();
+        note::create([
+            "penerima_id" => $user[0]['id'],
+            "pengirim_id" => Auth::user()->id,
+            "note" => $request->catatan
+        ]);
+        Alert::success('Berhasil', 'Catatan Berhasil Dikirim');
         return back();
     }
 }
