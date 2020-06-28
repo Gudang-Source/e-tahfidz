@@ -72,11 +72,41 @@
             <button type="submit" class="btn btn-grad"><i class="fa fa-send"></i> Kirim</button>
          </form>
          @else
-
          @endif
       </div>
    </div>
    @endif
  
+   <div class="panel">
+      <div class="panel-heading btn-grad">
+         <i class="fa fa-trash"></i> Hapus Gambar
+      </div>
+      @if ($gambar !== [])
+      <div class="panel-body">
+         <form action="{{route('suAdmin.iklan.delete')}}" method="post">
+            @csrf
+            <div class="row">
+               @foreach ($gambar as $gb)
+               <div class="col-md-4">
+                  <img src="/images/{{$gb['gambar']}}" style="width: 50%;" class="img-fluid" alt="">
+                  <div class="row">
+                     <div class="col-md-4">
+                        <label class="fancy-radio">
+                           <input name="hapus[]"  value="{{$gb['gambar']}}" type="checkbox">
+                           <span><i></i>Hapus</span>
+                        </label>
+                     </div>
+                  </div>
+               </div>
+               @endforeach
+            </div>
+            <button class="btn btn-danger" onclick="return confirm('Yakin Akan Menghapus Gambar Yang Sudah Dipilih')" ><i class="fa fa-trash" style="margin-top:2%;"></i></button>
+         </form>  
+      </div>
+      @else
+      
+      @endif
+   </div>
+
 @endsection
                   

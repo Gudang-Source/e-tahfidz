@@ -8,6 +8,7 @@ use App\Models\kelas;
 use App\Models\pengajar;
 use App\Models\spp;
 use App\Models\feature;
+use App\Models\murid;
 use App\User;
 
 class searchController extends Controller

@@ -50,37 +50,15 @@ class kelasController extends Controller
         return view('suAdmin.kelas.kelas_edit',compact('class', 'teachs'));
     }
 
-    public function kelasUpdate(kelasRequest $request, kelas $class) {
-        $pengajar = new pengajar();
-        $pengajar3 = pengajar::where('id', $request->pengajar_baru)->get()->all();
-        $pengajar_id = null;
-        if (isset($request->pengajar_baru)) {
-            $pengajar_id = $request->pengajar_baru;
-        }
-        else {
-            $pengajar_id = $request->pengajar_lama;
-        }
-        session()->flash('data', $class['pengajar_id']);
-        event(new hapusKelas($pengajar) );
-        if (!isset($request->pengajar_baru)) {
-            $pengajar2 = pengajar::where('id', $request->pengajar_lama)->get()->all();
-            $pengajar2[0]->update([
-                "status" => "aktiv"
-            ]);
-        }
-        else {  
-            $pengajar3[0]->update([
-                "status" => "aktiv"
-            ]);
-        }
-        $class->update([
-            "nama_kelas" => $request->kelas,
-            "pengajar_id" => $pengajar_id
-        ]);
-        
-        Alert::success('Berhasil', 'Data Kelas '.$request->kelas.' Berhasil Diupdate');
-        return redirect()->route('suAdmin.kelas.get');
-    }
+   public function kelasUpdate(kelas $class, Request $request) {
+    //    dd($request->all());
+       $class->update([
+           "nama_kelas" => $request->kelas,
+           "pengajar_id" => $request->pengajar_baru
+       ]);
+       Alert::success('Berhasil', 'Data Kelas Berhasil Diupdate');
+       return redirect()->route('suAdmin.kelas.get');
+   }
 
     public function tambahMurid(kelas $class) {
         $students = murid::get()->all();

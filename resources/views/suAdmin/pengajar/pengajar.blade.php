@@ -31,7 +31,7 @@
                   <th>Email</th>
                   <th>Alamat</th>
                   <th>No.Telepon</th>
-                  <th colspan="3" style="text-align: center">Aksi</th>
+                  <th colspan="4" style="text-align: center">Aksi</th>
                </tr>
             </thead>
           @foreach ($pengajar as $pjr)
@@ -57,6 +57,9 @@
                         @method('delete')
                         <button onclick="return confirm('Yakin Akan Menghapus Data Pengajar Ini ?? ')" type="submit" class="btn btn-grad"><i class="fa fa-trash"></i></button>
                      </form>
+                  </td>
+                  <td>
+                     <a href="{{route('suAdmin.pengajar.detail', $pjr)}}" class="btn btn-grad"><i class="fa fa-search-plus"></i></a>
                   </td>
                </tr>
           @endforeach

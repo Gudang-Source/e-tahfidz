@@ -19,7 +19,7 @@
 @endforeach
 @else
 <div class="panel panel-default">
-   <div class="panel-heading btn-grad" style="color:white">Kamu Belum Masuk Kelas Manapun</div>
+   <div class="panel-heading btn-grad" style="color:white">Kamu Belum Mengajar Kelas Manapun</div>
 </div>
 @endif
 

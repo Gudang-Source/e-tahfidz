@@ -44,8 +44,9 @@ class guruController extends Controller
 
     public function kelasGet() {
         if ($this->indexData()['class'] == "Belum Mengajar") {
-            $class = $this->indexData()['class'];
-            return view('guru.kelas.kelas', compact('class'));
+            $classes = $this->indexData()['class'];
+            // dd($classes);
+            return view('guru.kelas.kelas', compact('classes'));
         }
         else {
            $classes = $this->indexData()['class'];
@@ -54,7 +55,7 @@ class guruController extends Controller
     }
 
     public function note() {
-        $notes = note::where('penerima_id', Auth::user()->id)->paginate(5);
+        $notes = note::where('penerima_id', Auth::user()->id)->orderBy('id','DESC')->paginate(5);
         return view('suAdmin.pengajar.note_get',compact('notes'));
     }
 

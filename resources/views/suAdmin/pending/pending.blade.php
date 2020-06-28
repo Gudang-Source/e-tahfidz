@@ -49,9 +49,10 @@
                   </form>
                 </td>
                 <td>
-                  <form action="">
+                  <form action="{{route('suAdmin.delete',$pending)}}" method="post">
+                     @csrf
                      @method('delete')
-                     <button class="btn btn-grad"><i class="fa fa-trash"></i></button>
+                     <button onclick="return confirm('Yakin Akan Menolak Pendaftar Ini')" class="btn btn-grad"><i class="fa fa-trash"></i></button>
                   </form>
                 </td>
             </tr>

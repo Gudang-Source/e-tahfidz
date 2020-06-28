@@ -5,6 +5,7 @@ namespace App\Http\Controllers\suAdmin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use App\Models\kelas;
 use App\Http\Requests\authRequest;
 use App\Models\pengajar;
 use App\Events\t_pengajarEvent;
@@ -88,5 +89,11 @@ class pengajarController extends Controller
         ]);
         Alert::success('Berhasil', 'Catatan Berhasil Dikirim');
         return back();
+    }
+
+    public function pengajarDetail(User $pjr) {
+        $pengajar = pengajar::where('nama', $pjr['nama'])->get()->all();
+        $kelas = kelas::where('pengajar_id',$pengajar[0]['id'])->get()->all();
+       return view ('suAdmin.pengajar.pengajar_detail',compact('pengajar','kelas'));
     }
 }

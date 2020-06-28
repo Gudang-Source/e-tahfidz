@@ -53,8 +53,17 @@
   @endif
    <!-- ======= Footer ======= -->
    <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <p>
+          Sistem Ini Dikembangkan Bersama DEYAGISIT Dan Bersifat GRATIS. <br>
+          Untuk Donasi Silahkan Transfer Ke Rekening Kami MANDIRI 
+          <a href="#" style="text-decoration: none">1110011151491</a> a.n. Rahmad Perkasa <br>
+          Jika Anda Ingin Memakai Sistem Ini Silahkan Hubungi TIM DEYAGISIT
+        </p>
+      </div>
+    </div>
     <div class="container d-md-flex py-4">
-
       <div class="mr-md-auto text-center text-md-left">
         <div class="copyright">
           &copy; Copyright <strong><span>E-Tahfidz</span></strong>. Belajar Dengan Gembira

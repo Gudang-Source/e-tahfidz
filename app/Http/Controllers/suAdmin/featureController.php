@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+
 class featureController extends Controller
 {
     public function fiturGet() {
@@ -77,6 +79,19 @@ class featureController extends Controller
             
         }
         Alert::success('Berhasil', 'Gambar Iklan Berhasil Dipilih');
+        return back();
+    }
+    public function iklanDelete(Request $request) {
+        $gambar = $request;
+        $data = []; 
+        foreach ($gambar->hapus as $gb) {
+            Storage::delete($gb);
+            $a = iklan::where('gambar',$gb)->get()->all();
+            foreach ($a as $b) {
+                $b->delete();
+            }
+        }       
+        Alert::success('Berhasil', 'Gambar Berhasil Dihapus');
         return back();
     }
     public function sppGet() {

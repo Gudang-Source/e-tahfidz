@@ -16,7 +16,7 @@ class CreateMuridsTable extends Migration
         Schema::create('murids', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->text('kelas_id')->index()->nullable();
+            $table->text('kelas_id')->nullable();
             $table->timestamps();
         });
     }

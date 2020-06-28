@@ -149,7 +149,11 @@ class suAdminController extends Controller
         Alert::success('Berhasil', 'Email Telah Dikirimkan');
         return back();
     }
-
+    public function deletePending(r_pending $pending) {
+        $pending->delete();
+        Alert::success('Berhasil', 'Pendaftar Pending Berhasil Dihapus');
+        return back();
+    }
     public function muridGet() {
         $murids = User::where("role", 'murid')->paginate(10);
         return view('suAdmin.murid.murid',compact('murids'));
@@ -200,6 +204,7 @@ class suAdminController extends Controller
             $kelas = kelas::where('id',$kid)->get()->all();
             $kelas_murid [] = $kelas;            
         }
+        // dd($kelas_murid);
         return view('suAdmin.murid.muridDetail',compact('dataMurid','kelas_murid'));
     }
 }

@@ -31,7 +31,7 @@ class muridController extends Controller
     }
 
     public function note() {
-        $notes = note::where('penerima_id',Auth::user()->id)->paginate(5);
+        $notes = note::where('penerima_id',Auth::user()->id)->orderBy('id','DESC')->paginate(5);
         return view('murid.notes.notes',compact('notes'));
     }
 

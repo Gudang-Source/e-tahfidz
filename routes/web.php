@@ -35,6 +35,7 @@ Route::group(['namespace' => "suAdmin", "prefix" => "super-admin", 'middleware' 
         Route::post('', 'featureController@fiturPost');
         Route::get('/iklan', 'featureController@iklanGet')->name('suAdmin.fitur.iklan');
         Route::post('/iklan', 'featureController@iklanPost');
+        Route::post('/hapus-gambar-iklan', 'featureController@iklanDelete')->name('suAdmin.iklan.delete');
         Route::post('/iklan-gambar', 'featureController@iklanGambar')->name('suAdmin.fitur.iklan.gambar');
         Route::get('/spp', 'featureController@sppGet')->name('suAdmin.fitur.spp');
         Route::get('/bayar-spp/{murid}', 'featureController@sppBayar')->name('suAdmin.bayar');
@@ -63,6 +64,7 @@ Route::group(['namespace' => "suAdmin", "prefix" => "super-admin", 'middleware' 
         Route::put('/ganti-password-pembimbing/{pjr}','pengajarController@editPassword')->name('suAdmin.edit.password');
         Route::get('/catatan/{pjr}', 'pengajarController@pengajarNote')->name('suAdmin.pengajar.note');
         Route::post('/catatan/{pjr}','pengajarController@pengajarNotePost');
+        Route::get('/pengajar-detail/{pjr}', 'pengajarController@pengajarDetail')->name('suAdmin.pengajar.detail');
     });
 
     Route::group(['prefix' => 'kelas'],function(){
@@ -79,6 +81,7 @@ Route::group(['namespace' => "suAdmin", "prefix" => "super-admin", 'middleware' 
     Route::group(['prefix' => "registrasi-pending"],function(){
         Route::get('', 'suAdminController@pendingGet')->name('suAdmin.pending.get');
         Route::post('/{pending}', 'suAdminController@emailNotif')->name('suAdmin.confir');
+        Route::delete('/{pending}', 'suAdminController@deletePending')->name('suAdmin.delete');
     });
     
     Route::group(['prefix' => "murid"],function(){

@@ -1,7 +1,7 @@
 @extends('masterLay')
 
 @section('title')
-   Detail Murid
+   Detail Pengajar
 @endsection
 
 @section('content')
@@ -17,8 +17,8 @@
                <div class="metric">
                   <span class="icon"><i class="fa fa-user"></i></span>
                   <p>
-                     <span class="number">{{$dataMurid[0]['nama']}}</span>
-                     <span class="title">Nama Murid</span>
+                     <span class="number">{{$pengajar[0]['nama']}}</span>
+                     <span class="title">Nama Pengajar</span>
                   </p>
                </div>
             </div>
@@ -26,12 +26,12 @@
                <div class="metric">
                   <span class="icon"><i class="fa fa-university"></i></span>
                   <p>
-                     @if ($kelas_murid[0] !== [])
-                     <span class="number">{{count($kelas_murid)}}</span>
+                     @if ($kelas !== [])
+                     <span class="number">{{count($kelas)}}</span>
                      @else
                      <span class="number">0</span>
                      @endif
-                     <span class="title">Jumlah Kelas Yg Diikuti</span>
+                     <span class="title">Jumlah Kelas Yg Diajar</span>
                   </p>
                </div>
             </div>
@@ -43,25 +43,25 @@
   <div class="panel">
      <div class="panel-heading">
       <h4>
-         <i class="fa fa-university"></i> Kelas Yang Diikuti {{$dataMurid[0]['nama']}}  
+         <i class="fa fa-university"></i> Kelas Yang Diajar {{$pengajar[0]['nama']}}  
        </h4>
       </div>
      <div class="panel-body">
         <div class="row">
-           @if ($kelas_murid[0] !== [])
-           @foreach ($kelas_murid as $kls)
+           @if ($kelas !== [])
+           @foreach ($kelas as $kls)
            <div class="col-md-6">
               <div class="metric">
                  <span class="icon"><i class="fa fa-university"></i></span>
                  <p>
-                    <span class="number">{{$kls[0]['nama_kelas']}}</span>
+                    <span class="number">{{$kls['nama_kelas']}}</span>
                     <span class="title">Nama Kelas</span>
                  </p>
               </div>
            </div>
            @endforeach
            @else
-           Kamu Belum Masuk Kelas Manapun
+           Kamu Belum Mengajar Kelas Manapun
            @endif
                
       </div>
