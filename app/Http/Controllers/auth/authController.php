@@ -29,7 +29,7 @@ class authController extends Controller
             return redirect()->route('guru.index');
          }
         else {
-            Alert::warning('Gagal', "Kamu Gagal Login, Email / Password Kamu Mungkin Salah");
+            Alert::error('Gagal', "Kamu Gagal Login, Email / Password Kamu Mungkin Salah");
             return back();
         }
     }

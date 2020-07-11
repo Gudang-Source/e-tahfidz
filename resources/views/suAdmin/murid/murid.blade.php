@@ -29,6 +29,7 @@
                <th>Email</th>
                <th>Alamat</th>
                <th>No.Telepon</th>
+               <th>NIS</th>
                <th colspan="3" style="text-align: center">Aksi</th>
             </tr>
          </thead>
@@ -47,6 +48,11 @@
                   @else
                   <td>{{$murid['no_telp']}}</td>
                  @endif
+                 @if ($murid->nis == null)
+                     <td>NIS Belum Diisi</td>
+                  @else
+                     <td>{{$murid->nis}}</td>
+                 @endif
                <td style="text-align: center">
                   <a href="{{route('suAdmin.murid.edit',$murid)}}" class="btn btn-grad"><i class="fa fa-edit"></i></a>
                </td>
@@ -63,8 +69,12 @@
             </tr>
          @endforeach
       </table>
-     </div>
-   {{ $murids->links() }}
+   </div> 
+      @if ($paging == true)
+         {{$murids->links()}}
+      @else
+     
+      @endif
    </div>
 </div>
 <!-- END TABLE HOVER -->

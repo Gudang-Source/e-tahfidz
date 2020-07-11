@@ -72,9 +72,6 @@ class kelasController extends Controller
             }
         }
         session()->flash('class', $class['id']);
-        // $students = murid::get()->all();
-        // $murids = murid::where('kelas_id', $class['id'])->paginate(10);
-        // $jumlah = murid::where('kelas_id', $class['id'])->get()->all();
         return view('suAdmin.kelas.kelas_detail', compact('students','class', 'murids'));
     }
 

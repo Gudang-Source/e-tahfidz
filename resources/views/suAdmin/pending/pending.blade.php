@@ -1,7 +1,7 @@
 @extends('masterLay')
 
 @section('title')
-   Kelas
+   Pendaftar Pending 
 @endsection
 
 @section('content')

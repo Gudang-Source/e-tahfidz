@@ -1,7 +1,7 @@
 @extends('masterLay')
 
 @section('title')
-    Edit Data Pengajar
+    Edit Data Murid
 @endsection
 
 @section('content')
@@ -23,15 +23,25 @@
               <div class="form-group">
                  <label for="">Email Murid</label>
                  <input type="email" name="email" class="form-control" value="{{$murid['email']}}">
-               {!!$errors->first('email','<span class="text-danger">:message</span>')!!}
+                  {!!$errors->first('email','<span class="text-danger">:message</span>')!!}
+               </div>
+               <div class="row">
+                  <div class="col-md-6">
+                     <div class="form-group">
+                        <label for="">No.Telepon</label>
+                        <input type="text" name="no_telp" placeholder="Masukan No.Telepon" value="{{$murid['no_telp']}}" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="form-group">
+                        <label for="">Alamat</label>
+                        <input type="text" name="alamat" placeholder="Masukan Alamat" value="{{$murid['alamat']}}" class="form-control">
+                     </div>
+                  </div>
                </div>
                <div class="form-group">
-                  <label for="">No.Telepon</label>
-                  <input type="text" name="no_telp" placeholder="Masukan No.Telepon" value="{{$murid['no_telp']}}" class="form-control">
-               </div>
-               <div class="form-group">
-                  <label for="">Alamat</label>
-                  <input type="text" name="alamat" placeholder="Masukan Alamat" value="{{$murid['alamat']}}" class="form-control">
+                  <label for="">Nis</label>
+                  <input type="text" name="nis" value="{{$murid['nis']}}" placeholder="Masukan NIS Siswa" class="form-control">
                </div>
               <button class="btn btn-grad"><i class="fa fa-edit"></i> Update Data</button>
            </form>

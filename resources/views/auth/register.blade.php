@@ -7,6 +7,26 @@
 
 @section('auth')
 <div class="limiter">
+   @error('password')
+      <script>
+         alert("{!!$errors->first('password', ':message') !!}")
+      </script>
+   @enderror
+   @error('email')
+      <script>
+         alert("Email ini sudah digunakan. Gunakan Email yg lain untuk mendaftarkan murid baru. Info selengkapnya hubungi admin");
+      </script>
+   @enderror
+   @error('nama')
+   <script>
+      alert("{!!$errors->first('nama', ':message') !!}")
+   </script>
+@enderror
+   @error('password_confirmation')
+      <script>
+         alert("{!!$errors->first('password_confirmation', ':message') !!}")
+      </script>
+   @enderror
    <div class="container-login100" style="background-image: url('/assets_front/img/hero-home.webp');">
       <div class="wrap-login100 p-t-30 p-b-50" style="">
          <span class="login100-form-title p-b-41">

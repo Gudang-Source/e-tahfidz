@@ -39,7 +39,7 @@
     @include('part.part_welcome.counts')
     <!-- End Counts Section --> 
 
-     
+     @include('part.part_welcome.video');
 
     <!-- ======= Frequently Asked Questions Section ======= -->
     @include('part.part_welcome.faq')

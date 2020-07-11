@@ -16,7 +16,7 @@ class CreateRPendingsTable extends Migration
         Schema::create('r_pendings', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('email');
+            $table->string('email')->unique('email');
             $table->string('no_telp')->nullable();
             $table->text('alamat')->nullable();
             $table->string('password');

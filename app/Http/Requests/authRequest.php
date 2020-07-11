@@ -24,8 +24,8 @@ class authRequest extends FormRequest
     public function rules()
     {
         return [
-            "nama" => ['required'],
-            "email" => ['required', 'unique:users,email'],
+            "nama" => ['required','unique:r_pendings,nama', 'unique:users,nama'],
+            "email" => ['required', 'unique:r_pendings,email', 'unique:users,email'],
             "password" => ['required','confirmed'],
             "password_confirmation" => ['required']
         ];

@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 class welcomeController extends Controller
 {
     public function index() {
+        // dd($_SERVER['REMOTE_ADDR']);
         $info = information::where('tujuan',1)->limit(5)->latest()->get();
         $pembimbing = pengajar::get()->all();
         $murid = murid::get()->all();

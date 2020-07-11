@@ -36,12 +36,15 @@ class featureController extends Controller
         return view('suAdmin.fitur.iklan',compact('iklan','gambar'));
     }
     public function iklanPost(Request $request) {
+        $request->validate([
+            "gambar" => ['required'],
+        ]);
         $iklan = $request->file('gambar')->store('iklan');
         iklan::create([
             "gambar" => $iklan,
             "status" => "non-checked"
         ]);
-        Alert::success('berhasil', 'berhasil');
+        Alert::success('Berhasil', 'Gambar Iklan Berhasil Ditambahkan');
         return back();
     }
     public function iklanGambar(Request $request) {
@@ -123,7 +126,6 @@ class featureController extends Controller
     public function sppBayar(spp $murid) {
         return view('suAdmin.fitur.spp_bayar',compact('murid'));
     }
-    
     public function sppBayar2(Request $request, spp $murid) {
         $murid->update([
             $request->bulan => json_encode(["Lunas", $request->pesan])

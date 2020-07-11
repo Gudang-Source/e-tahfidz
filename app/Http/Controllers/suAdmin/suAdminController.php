@@ -125,16 +125,14 @@ class suAdminController extends Controller
             
         ];
     }
-    public function emailNotif(r_pending $pending) {
-        $a = Mail::to($pending['email'])->send(new ConfirmationEmail());
-        $spp = $this->bulan();
-        session()->flash('nama', $pending['nama']);
+    public function create($pending) {
         User::create([
             "nama" => $pending['nama'],
             "email" => $pending['email'],
             "password" => bcrypt($pending['password']),
             "no_telp" => $pending['no_telp'],
             "alamat" => $pending['alamat'],
+            "nis" => null,
             "role" => 'murid'
         ]);
         murid::create([
@@ -145,21 +143,31 @@ class suAdminController extends Controller
             "nama" => $pending['nama'],
             "tahun" => date('Y'),
         ]);
+    }
+    public function emailNotif(r_pending $pending) {
+        $a = Mail::to($pending['email'])->send(new ConfirmationEmail());
+        $spp = $this->bulan();
+        session()->flash('nama', $pending['nama']);
+        $this->create($pending);
         $pending->delete();
         Alert::success('Berhasil', 'Email Telah Dikirimkan');
         return back();
     }
+
     public function deletePending(r_pending $pending) {
         $pending->delete();
         Alert::success('Berhasil', 'Pendaftar Pending Berhasil Dihapus');
         return back();
     }
+
     public function muridGet() {
-        $murids = User::where("role", 'murid')->paginate(10);
-        return view('suAdmin.murid.murid',compact('murids'));
+        $paging = true;
+        $murids = User::where("role", 'murid')->orderBy('id','DESC')->paginate(10);
+        return view('suAdmin.murid.murid',compact('murids','paging'));
     }
 
     public function muridDestroy(User $murid) {
+        // dd($murid);
         $murids = murid::where('nama', $murid['nama'])->get()->all();
         $spp = spp::where('nama', $murid['nama'])->get()->all();
         $murids[0]->delete();
@@ -178,7 +186,8 @@ class suAdminController extends Controller
             "nama" => $request->nama,
             "no_telp" => $request->no_telp,
             "alamat" => $request->alamat,
-            "email" => $request->email
+            "email" => $request->email,
+            "nis" => $request->nis
         ]);
         Alert::success('Berhasil', 'Data Murid '.$request->nama.' Berhasil Diupdate');
         return back();
@@ -198,7 +207,7 @@ class suAdminController extends Controller
 
     public function muridDetail(User $murid) {
         $dataMurid  = murid::where('nama',$murid['nama'])->get()->all();
-    //    dd($dataMurid);
+        // dd($dataMurid);
         $kelas_murid = [];
         foreach (explode(',',$dataMurid[0]['kelas_id']) as $kid) {
             $kelas = kelas::where('id',$kid)->get()->all();

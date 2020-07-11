@@ -81,7 +81,7 @@
          </button>
        </div>
        <div class="modal-body">
-            <form action="{{route('suAdmin.pengajar.get')}}" method="post">
+            <form action="{{route('suAdmin.pengajar.get')}}" method="post" enctype="multipart/form-data">
                @csrf
                <div class="form-group">
                   <label for="">Nama Pengajar</label>
